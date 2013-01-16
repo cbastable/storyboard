@@ -1,0 +1,34 @@
+<% provide(:title, @story.title) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <% if current_user?(@story.user) %>
+        <p>Hello author</p>
+      <%= link_to "Edit story", edit_story_path %>
+      <%= link_to "Delete story", @story,  method: :delete,
+                                      data: {confirm: "Delete story?"}
+                                       %>
+    <% end %>
+    </section>
+    <section>
+      <h2>
+        <%= @story.title %>
+      </h2>
+      <h4>
+        <%= @story.genre %>
+      </h4>
+    </section>
+    <section>
+      <p><%= @story.blurb %></p>
+    </section>
+    <section>
+      <h3>Story:</h3>
+    </section>
+    <section>
+      <p><%= @story.content %></p>
+    </section>
+  
+  </aside>
+  
+  
+</div>

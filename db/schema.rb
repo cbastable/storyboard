@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130116030631) do
+ActiveRecord::Schema.define(:version => 20130116035354) do
+
+  create_table "stories", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "blurb"
+    t.string   "genre"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "stories", ["user_id", "title", "genre", "created_at"], :name => "index_stories_on_user_id_and_title_and_genre_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "name"
