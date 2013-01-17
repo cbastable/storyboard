@@ -1,0 +1,15 @@
+<% @user ||= current_user %>
+<div class="stats">
+  <a href="<%= publishers_user_path(@user) %>">
+    <strong id="publishers" class="stat">
+      <%= @user.publishers.count %>
+    </strong>
+    publishers
+  </a>
+  <a href="<%= readers_user_path(@user) %>">
+    <strong id="readers" class="stat">
+      <%= @user.readers.count %>
+    </strong>
+    subscribers
+  </a>
+</div>

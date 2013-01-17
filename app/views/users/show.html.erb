@@ -7,6 +7,10 @@
         <%= @user.name %>
       </h1>
     </section>
+    <section>
+      <%= render 'shared/stats' %>
+      <%= render 'subscribe_form' if signed_in? %>
+    </section>
     <p>
       <%= link_to "Publish a story", write_path %>
     </p>

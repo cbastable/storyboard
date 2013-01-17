@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :signed_in_user,
-                only: [:index, :edit, :update, :destroy]
+                only: [:index, :edit, :update, :destroy, :publishers, :subscribers]
   before_filter :correct_user,   only: [:edit, :update]
   before_filter :admin_user,     only: :destroy
   
@@ -56,6 +56,20 @@ class UsersController < ApplicationController
   
   def index
     @users = User.paginate(page: params[:page])
+  end
+  
+  def publishers
+    @title = "Publishers"
+    @user = User.find(params[:id])
+    @users = @user.publishers.paginate(page: params[:page])
+    render 'show_relationships'
+  end
+  
+  def readers                                   # bad naming - subscribers vs. readers
+    @title = "Subscribers"
+    @user = User.find(params[:id])
+    @users = @user.readers.paginate(page: params[:page])
+    render 'show_relationships'
   end
 
   private

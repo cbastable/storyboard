@@ -17,6 +17,12 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :stories, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :relationships, foreign_key: "reader_id", dependent: :destroy
+  has_many :publishers, through: :relationships, source: :publisher
+  has_many :reverse_relationships,  foreign_key: "publisher_id",
+                                    class_name: "Relationship",
+                                    dependent: :destroy
+  has_many :readers, through: :reverse_relationships, source: :reader
   
   before_save { |user| user.email = email.downcase }
   before_save :create_remember_token
@@ -27,6 +33,18 @@ class User < ActiveRecord::Base
             uniqueness: {case_sensitive: false} 
   validates :password, presence: true, length: {minimum: 6} 
   validates :password_confirmation, presence: true
+  
+  def subscribed?(other_user)
+    relationships.find_by_publisher_id(other_user.id)
+  end
+  
+  def subscribe!(other_user)
+    relationships.create!(publisher_id: other_user.id)
+  end
+  
+  def unsubscribe!(other_user)
+    relationships.find_by_publisher_id(other_user.id).destroy
+  end
   
   private
   
