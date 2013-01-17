@@ -16,6 +16,7 @@ class Story < ActiveRecord::Base
   attr_accessible :blurb, :content, :genre, :title
   belongs_to :user
   has_many :stats, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
   # validate for max/min lengths too
   validates :user_id, presence: true

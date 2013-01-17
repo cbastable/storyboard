@@ -1,7 +1,10 @@
 Storyboard::Application.routes.draw do
   resources :users 
   resources :sessions, only: [:new, :create, :destroy]
-  resources :stories
+  resources :stories do
+    resources :comments, only: [:create, :destroy]
+  end
+  #resources :comments, only: [:create, :destroy]
   
   root to: 'users#index'
   

@@ -14,18 +14,23 @@ def create
   if @story.save
     @stats.save
     flash[:success] = "Story pinned successfully"
-    redirect_to @story_path
+    redirect_to current_user_path
   else
     render 'new'
   end
 end
 
 def show
-  @story = Story.find(params[:id])
+  @story = Story.find_by_id(params[:id])
   @views = Stat.find(:all, conditions: {story_id: @story.id, viewed: true}).count
   if Stat.find(:all, conditions: {story_id: @story.id, viewer_id: current_user.id}).nil?
-  @stats = @story.stats.build(viewer_id: current_user.id, viewed: true)
-  @stats.save
+    @stats = @story.stats.build(viewer_id: current_user.id, viewed: true)
+    @stats.save
+  end
+  @comments = @story.comments.paginate(page: params[:page])
+  if signed_in?
+    @comment = @story.comments.build
+    @comment.user_id = current_user.id
   end
 end
 
@@ -34,7 +39,7 @@ def edit
 end
 
 def update
-  @story = Story.find(params[:id])
+  @story = Story.find_by_id(params[:id])
   if @story.update_attributes(params[:story])
     flash[:success] = "Story updated successfully"
     redirect_to story_path
@@ -44,7 +49,7 @@ def update
 end
 
 def destroy
-  current_user.stories.find(params[:id]).destroy
+  current_user.stories.find_by_id(params[:id]).destroy
   flash[:sucess] = "Story destroyed"
   redirect_to @current_user
 end
@@ -53,7 +58,7 @@ end
 private
   
   def correct_user
-    @user = Story.find(params[:id]).user
+    @user = Story.find_by_id(params[:id]).user
     redirect_to(root_path) unless current_user?(@user)
   end
   

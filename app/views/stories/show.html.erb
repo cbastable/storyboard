@@ -10,27 +10,34 @@
                                        %>
     <% end %>
     </section>
+  </aside>
+  <aside class="span8">
     <section>
-      <h2>
-        <%= @story.title %>
-      </h2>
-      <h4>
-        <%= @story.genre %>
-      </h4>
-    </section>
-    <section>
+      <h2><%= @story.title %></h2>
+      <h4><%= @story.genre %></h4>
       <p><%= @story.blurb %></p>
-    </section>
-    <section>
       <h3>Story:</h3>
-    </section>
-    <section>
       <p><%= @story.content %></p>
-    </section>
-    <section>
       <p><%= @views %></p>
     </section>
   </aside>
+  <aside class="span6">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/comment_form' %>
+      </section>
+    </aside>
+  <div class="span8">
+    <% if @story.comments.any? %>
+      <h3>Comments (<%= @story.comments.count %>)</h3>
+      <ol class="microposts">
+        <%= render @comments %>
+      </ol>
+      <%= will_paginate @comments %>
+    <% end %>
+  </div>
   
   
 </div>
