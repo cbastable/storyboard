@@ -34,3 +34,6 @@ class User < ActiveRecord::Base
     end
   
 end
+
+
+#state machine for admin?

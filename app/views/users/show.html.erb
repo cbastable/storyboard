@@ -10,7 +10,16 @@
     <p>
       <%= link_to "Publish a story", write_path %>
     </p>
- 
+    <section>
+      <% unless @user.stories.nil? %>
+      <h4>Published stories:</h4>
+      <ol class="stories">
+        <% @user.stories.each do |s| %>
+        <li><%= link_to s.title, s %></li>
+        <% end %>
+      </ol>
+    <% end %>
+    </section>
   </aside>
   
   

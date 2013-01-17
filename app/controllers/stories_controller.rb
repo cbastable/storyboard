@@ -5,20 +5,28 @@ before_filter :correct_user, only: [:edit, :destroy]
 
 def new
   @story = Story.new
+  @stats = Stat.new
 end
 
 def create
   @story = current_user.stories.build(params[:story])
+  @stats = @story.stats.build(viewer_id: current_user.id, viewed: true)
   if @story.save
+    @stats.save
     flash[:success] = "Story pinned successfully"
-    redirect_to @story_url
+    redirect_to @story_path
   else
-    render 'new'    #can we not delete the story already submitted with this method? test to make sure
+    render 'new'
   end
 end
 
 def show
   @story = Story.find(params[:id])
+  @views = Stat.find(:all, conditions: {story_id: @story.id, viewed: true}).count
+  if Stat.find(:all, conditions: {story_id: @story.id, viewer_id: current_user.id}).nil?
+  @stats = @story.stats.build(viewer_id: current_user.id, viewed: true)
+  @stats.save
+  end
 end
 
 def edit
@@ -26,6 +34,7 @@ def edit
 end
 
 def update
+  @story = Story.find(params[:id])
   if @story.update_attributes(params[:story])
     flash[:success] = "Story updated successfully"
     redirect_to story_path

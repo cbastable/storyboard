@@ -15,6 +15,7 @@
 class Story < ActiveRecord::Base
   attr_accessible :blurb, :content, :genre, :title
   belongs_to :user
+  has_many :stats, dependent: :destroy
   
   # validate for max/min lengths too
   validates :user_id, presence: true
@@ -26,6 +27,8 @@ class Story < ActiveRecord::Base
                       minimum: 500,
                       tokenizer: lambda {|str| str.scan(/\s+|$/)} }
   
+  
+
   
   default_scope order: 'stories.created_at DESC'
   

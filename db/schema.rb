@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130116035354) do
+ActiveRecord::Schema.define(:version => 20130116174824) do
+
+  create_table "stats", :force => true do |t|
+    t.integer  "viewer_id"
+    t.boolean  "viewed",     :default => false
+    t.decimal  "rating"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "story_id"
+  end
+
+  add_index "stats", ["rating"], :name => "index_stats_on_rating"
+  add_index "stats", ["viewed"], :name => "index_stats_on_viewed"
+  add_index "stats", ["viewer_id", "viewed", "rating"], :name => "index_stats_on_viewer_id_and_viewed_and_rating", :unique => true
+  add_index "stats", ["viewer_id"], :name => "index_stats_on_viewer_id"
 
   create_table "stories", :force => true do |t|
     t.integer  "user_id"
