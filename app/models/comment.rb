@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: comments
+#
+#  id         :integer          not null, primary key
+#  content    :string(255)
+#  user_id    :integer
+#  story_id   :integer
+#  rating     :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Comment < ActiveRecord::Base
   attr_accessible :content, :rating
   belongs_to :user

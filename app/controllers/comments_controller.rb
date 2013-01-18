@@ -7,16 +7,25 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       flash[:success] = "Comment pinned!"
-      redirect_to story_path(@story)
+      respond_to do |format|
+        format.html {redirect_to story_path(@story)}
+        format.js
+      end
     else
       flash[:error] = "Could not post"
-      redirect_to story_path(@story)    ##this is kind of buggy still
+      respond_to do |format|
+        format.html {redirect_to story_path(@story)}
+        format.js
+      end
     end
   end
 
   def destroy
     @comment.destroy
-    redirect_to root_path
+    respond_to do |format|
+      format.html {redirect_to story_path(@story)}
+      format.js
+    end
   end
   
 end

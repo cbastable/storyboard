@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130117162943) do
+ActiveRecord::Schema.define(:version => 20130118021158) do
+
+  create_table "boards", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "story_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "boards", ["name", "story_id"], :name => "index_boards_on_name_and_story_id", :unique => true
+  add_index "boards", ["name"], :name => "index_boards_on_name"
+  add_index "boards", ["story_id"], :name => "index_boards_on_story_id"
+  add_index "boards", ["user_id"], :name => "index_boards_on_user_id"
 
   create_table "comments", :force => true do |t|
     t.string   "content"

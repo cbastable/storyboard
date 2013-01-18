@@ -1,14 +1,15 @@
 Storyboard::Application.routes.draw do
   resources :users do
     member do
-      get :publishers, :readers    #this might be wrong
+      get :publishers, :readers, :library_stories
     end
   end
-  resources :sessions, only: [:new, :create, :destroy]
+  resources :sessions,        only: [:new, :create, :destroy]
   resources :stories do
-    resources :comments, only: [:create, :destroy]
+    resources :comments,        only: [:create, :destroy]
   end
-  resources :relationships, only: [:create, :destroy]
+  resources :relationships,   only: [:create, :destroy]
+  resources :boards,          only: [:create, :destroy]
   
   root to: 'users#index'
   

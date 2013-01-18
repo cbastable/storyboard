@@ -1,18 +1,17 @@
 # == Schema Information
 #
-# Table name: comments
+# Table name: boards
 #
 #  id         :integer          not null, primary key
-#  content    :string(255)
 #  user_id    :integer
+#  name       :string(255)
 #  story_id   :integer
-#  rating     :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
 require 'spec_helper'
 
-describe Comment do
+describe Board do
   pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -65,11 +65,19 @@ class UsersController < ApplicationController
     render 'show_relationships'
   end
   
-  def readers                                   # bad naming - subscribers vs. readers
+  def readers
     @title = "Subscribers"
     @user = User.find(params[:id])
     @users = @user.readers.paginate(page: params[:page])
     render 'show_relationships'
+  end
+  
+  def library_stories
+    @title = "Library stories"
+    @user = User.find(params[:id])
+    @storyboards = @user.boards
+    @board_stories = @user.library_stories.paginate(page: params[:page])
+    render 'show_library'
   end
 
   private

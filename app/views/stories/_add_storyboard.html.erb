@@ -1,0 +1,6 @@
+<%= form_for(current_user.boards.build(story_id: @story.id),
+              remote: true) do |f| %>
+  <div><%= f.hidden_field :story_id %></div>
+  <div class="field"><%= f.text_field :name, placeholder: "storyboard name..." %></div>
+  <%= f.submit "Add to storyboard", class: "btn btn-large btn-primary" %>
+<% end %>

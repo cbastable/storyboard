@@ -16,6 +16,7 @@ class Stat < ActiveRecord::Base
   belongs_to :story
   
   validates :viewer_id, presence: true
+  validates :story_id, presence: true
   
   
   default_scope order: 'stats.created_at DESC'

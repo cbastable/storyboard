@@ -12,4 +12,17 @@
     </strong>
     subscribers
   </a>
+  <p>
+    Read
+    <strong id="library_stories" class="stat">
+      <%=  %>
+    </strong>
+    stories
+  </p>
+  <a href="<%=  %>">
+    <strong id="readers" class="stat">
+      (<%= @user.boards.count('name', distinct: true) %>)
+    </strong>
+    boards
+  </a>
 </div>

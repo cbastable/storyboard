@@ -21,6 +21,11 @@
       <p><%= @views %></p>
     </section>
   </aside>
+   <aside class="span8">
+    <section>
+      <%= render 'storyboard_form' if signed_in? %>
+    </section>
+  </aside>
   <aside class="span6">
       <section>
         <%= render 'shared/user_info' %>
@@ -28,12 +33,12 @@
       <section>
         <%= render 'shared/comment_form' %>
       </section>
-    </aside>
+  </aside>
   <div class="span8">
     <% if @story.comments.any? %>
       <h3>Comments (<%= @story.comments.count %>)</h3>
       <ol class="microposts">
-        <%= render @comments %>
+        <%= render 'comments/comment' %>
       </ol>
       <%= will_paginate @comments %>
     <% end %>
