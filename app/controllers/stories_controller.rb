@@ -22,11 +22,6 @@ end
 
 def show
   @story = Story.find_by_id(params[:id])
-  @views = @story.stats.find(:all, group: 'viewer_id').count
-  if Stat.find(:all, conditions: {story_id: @story.id, viewer_id: current_user.id}).nil?
-    @stats = @story.stats.build(viewer_id: current_user.id, viewed: true)
-    @stats.save
-  end
   @comments = @story.comments.paginate(page: params[:page])
   if signed_in?
     @comment = @story.comments.build

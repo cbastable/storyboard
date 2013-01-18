@@ -16,14 +16,18 @@
       <h2><%= @story.title %></h2>
       <h4><%= @story.genre %></h4>
       <p><%= @story.blurb %></p>
+      <aside class="span8">
+      <section>
+      <%= render 'stat_form' %>
+      </section>
+      </aside>
       <h3>Story:</h3>
       <p><%= @story.content %></p>
-      <p><%= @views %></p>
     </section>
   </aside>
    <aside class="span8">
     <section>
-      <%= render 'storyboard_form' if signed_in? %>
+      <%= render 'storyboard_form' %>
     </section>
   </aside>
   <aside class="span6">

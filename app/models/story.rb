@@ -29,6 +29,9 @@ class Story < ActiveRecord::Base
                       tokenizer: lambda {|str| str.scan(/\s+|$/)} }
   
   
+  def add_to_stats!(stat)
+    stats.create!(viewed: true)
+  end
 
   
   default_scope order: 'stories.created_at DESC'

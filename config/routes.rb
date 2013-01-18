@@ -10,6 +10,7 @@ Storyboard::Application.routes.draw do
   end
   resources :relationships,   only: [:create, :destroy]
   resources :boards,          only: [:create, :destroy]
+  resources :stats,           only: [:create]
   
   root to: 'users#index'
   
