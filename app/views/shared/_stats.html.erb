@@ -15,7 +15,7 @@
   <p>
     Read
     <strong id="library_stories" class="stat">
-      <%=  %>
+      <%= @user.library_stories.find(:all, group: :story_id).count %>
     </strong>
     stories
   </p>

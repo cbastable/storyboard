@@ -30,9 +30,17 @@ class Story < ActiveRecord::Base
   
   
   def add_to_stats!(stat)
-    stats.create!(viewed: true)
+    stats.create!(viewer_id: stat.viewer_id, viewed: true)
   end
-
+  
+  def comment!(comment)
+    comments.create!(user_id: comment.user_id, content: comment.content)
+  end
+  
+  def uncomment!(comment)
+    comments.find_by_id(comment.id).destroy
+  end
+  
   
   default_scope order: 'stories.created_at DESC'
   

@@ -27,25 +27,17 @@
   </aside>
    <aside class="span8">
     <section>
+      <%= render 'upvote_story_form' %>
       <%= render 'storyboard_form' %>
     </section>
   </aside>
   <aside class="span6">
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
-      <section>
-        <%= render 'shared/comment_form' %>
-      </section>
+      <div id="user_info_for_comment"><%= render 'shared/user_info' %></div>
+      <div><%= render 'comment_form' %></div> 
   </aside>
   <div class="span8">
-    <% if @story.comments.any? %>
-      <h3>Comments (<%= @story.comments.count %>)</h3>
-      <ol class="microposts">
-        <%= render 'comments/comment' %>
-      </ol>
-      <%= will_paginate @comments %>
-    <% end %>
+    <h3>Comments</h3>
+    <div><%= render 'show_comments' %></div>
   </div>
   
   

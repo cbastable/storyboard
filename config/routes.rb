@@ -6,8 +6,12 @@ Storyboard::Application.routes.draw do
   end
   resources :sessions,        only: [:new, :create, :destroy]
   resources :stories do
-    resources :comments,        only: [:create, :destroy]
+    member do
+      put :upvote, :downvote, :no_vote
+    end
   end
+  resources :comments,        only: [:create, :destroy]
+  
   resources :relationships,   only: [:create, :destroy]
   resources :boards,          only: [:create, :destroy]
   resources :stats,           only: [:create]

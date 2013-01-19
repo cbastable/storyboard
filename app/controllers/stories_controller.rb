@@ -49,6 +49,42 @@ def destroy
   redirect_to @current_user
 end
 
+def comments
+  @comments = @story.comments.paginate(page: params[:page])
+  render 'show_comments'
+end
+
+def upvote
+    @stat = Stat.find(params[:id])
+    Stat.increment_counter(:rating, @stat.id)
+    @story = @stat.story
+    respond_to do |format|
+      format.html {redirect_to story_path(@story)}
+      format.js
+    end
+end
+
+def downvote
+    @stat = Stat.find(params[:id])
+    Stat.decrement_counter(:rating, @stat.id)
+    @story = @stat.story
+    respond_to do |format|
+      format.html {redirect_to story_path(@story)}
+      format.js
+    end
+end
+
+def no_vote
+    @stat = Stat.find(params[:id])
+    @stat.rating = nil
+    @stat.save!
+    @story = @stat.story
+    respond_to do |format|
+      format.html {redirect_to story_path(@story)}
+      format.js
+    end
+end
+
 
 private
   

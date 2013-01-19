@@ -12,13 +12,13 @@
 #
 
 class Comment < ActiveRecord::Base
-  attr_accessible :content, :rating
+  attr_accessible :content, :rating, :story_id, :user_id
   belongs_to :user
   belongs_to :story
   
   validates :user_id, presence: true
   validates :story_id, presence: true
-  validates :content, presence: true, length: {maximum: 500, minimum: 3}
+  validates :content, presence: true, length: {maximum: 255, minimum: 3}
   
   default_scope order: 'comments.created_at DESC'
 end

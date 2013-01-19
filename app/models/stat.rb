@@ -12,8 +12,9 @@
 #
 
 class Stat < ActiveRecord::Base
-  attr_accessible :rating, :viewed, :viewer_id
+  attr_accessible :rating, :viewed, :viewer_id, :story_id
   belongs_to :story
+  belongs_to :viewer, class_name: "User"
   
   validates :viewer_id, presence: true
   validates :story_id, presence: true
@@ -21,5 +22,3 @@ class Stat < ActiveRecord::Base
   
   default_scope order: 'stats.created_at DESC'
 end
-
-# enforce viewer_id unique!

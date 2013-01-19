@@ -4,6 +4,7 @@ class BoardsController < ApplicationController
   def create
     @board = Board.new(params[:board])
     current_user.add_to_storyboard!(@board)
+    @story = Story.find_by_id(@board.story_id)
     respond_to do |format|
       format.html {redirect_to story_path(@story)}
       format.js

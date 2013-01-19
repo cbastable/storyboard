@@ -28,6 +28,8 @@ class User < ActiveRecord::Base
   has_many :boards, dependent: :destroy
   has_many :library_stories, through: :boards, source: :library_story
   
+  has_many :stats, source: :viewer, dependent: :destroy
+  
   
   
   before_save { |user| user.email = email.downcase }
@@ -53,7 +55,7 @@ class User < ActiveRecord::Base
   end
   
   def in_storyboard?(board_name, story)
-    boards.where(name: board_name).where(story_id: story.id)
+    boards.where(name: board_name).where(story_id: story.id)    #security on this stuff with "?"
   end
   
   def add_to_storyboard!(board)

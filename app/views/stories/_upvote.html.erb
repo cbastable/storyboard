@@ -1,0 +1,5 @@
+<%= form_for(@stat = @story.stats.find_by_viewer_id(current_user.id),
+              url: upvote_story_path(@stat),
+              remote: true) do |f| %>
+  <%= f.submit "Upvote", class: "btn btn-large btn-primary" %>
+<% end %>

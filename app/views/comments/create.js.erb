@@ -1,0 +1,4 @@
+$("#comments_count").html('Comments (<%= (@story.comments.count) %>)');
+$("#comments").html('<%= escape_javascript(render('stories/comments')) %>');
+$("#comment_form").html('<%= escape_javascript(render('stories/comment')) %>');
+$("#user_info_for_comment").html('<%= escape_javascript(render('shared/user_info')) %>');
