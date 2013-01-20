@@ -8,7 +8,7 @@
       <div class="span8">
       <ul class="stories">
         <% @user.boards.each do |b| %>
-          <% if b.name == board.name %>
+          <% if b.name == board.name && !b.library_story.nil? %>
            <li><%= link_to b.library_story.title, b.library_story %></li>
          <% end %>
         <% end %>

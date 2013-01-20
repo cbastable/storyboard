@@ -27,6 +27,8 @@ class UsersController < ApplicationController
       @user = User.new(params[:user])
       if @user.save
         sign_in @user
+        @read = current_user.boards.create!(name: "Read")
+        @to_read = current_user.boards.create!(name: "To read")
         flash[:success] = "Welcome to StoryBoard!"
         redirect_to @user
       else

@@ -7,7 +7,7 @@
 <% if @user.stories.any? %>
   <div class="span2 offset1">
     <div class="storyboard-container">
-      <div class="span8"><section>Works</section></div>
+      <div class="span8"><section><%= "Published" %></section></div>
       <div class="span8">
         <% if current_user?(@user) %>
           <%= link_to "Publish a story", write_path, class: "btn btn-block btn-primary" %>
