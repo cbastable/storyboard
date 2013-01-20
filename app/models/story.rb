@@ -25,9 +25,9 @@ class Story < ActiveRecord::Base
   validates :blurb, presence: true, length: {maximum: 250, minimum: 10}
   validates :content, presence: true, length: {
                       maximum: 10000,
-                      minimum: 500,
+                      
                       tokenizer: lambda {|str| str.scan(/\s+|$/)} }
-  
+  # minimum: 500, removed for db population
   
   def add_to_stats!(stat)
     stats.create!(viewer_id: stat.viewer_id, viewed: true)

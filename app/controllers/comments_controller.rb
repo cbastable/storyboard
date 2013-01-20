@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @story = @comment.story
     if @story.comment!(@comment)
-      @comments = @story.comments
+      @comments = @story.comments.paginate(per_page: 10, page: params[:page])
       respond_to do |format|
         format.html {redirect_to story_path(@story)}
         format.js
