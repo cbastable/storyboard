@@ -1,8 +1,13 @@
 <% provide(:title, 'Publish') %>
-<h1>Publish story</h1>
+<% @user ||= current_user %>
 
 <div class="row">
-  <div class="span6 offset3">
+  <aside class="span3"><%= render 'shared/floating_user_info' %></aside>
+  <div class="span6">
+    <h1>Publish story</h1>
+  </div>
+
+  <div class="span6">
     <%= form_for(@story) do |f| %>
       <%= render 'fields', f: f %>
       <%= f.submit "Publish story", class: "btn btn-large btn-primary" %>

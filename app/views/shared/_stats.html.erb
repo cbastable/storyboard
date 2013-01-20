@@ -1,28 +1,27 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <a href="<%= publishers_user_path(@user) %>">
-    <strong id="publishers" class="stat">
-      <%= @user.publishers.count %>
-    </strong>
-    publishers
-  </a>
-  <a href="<%= readers_user_path(@user) %>">
-    <strong id="readers" class="stat">
-      <%= @user.readers.count %>
-    </strong>
-    subscribers
-  </a>
-  <p>
-    Read
-    <strong id="library_stories" class="stat">
-      <%= @user.library_stories.find(:all, group: :story_id).count %>
-    </strong>
-    stories
-  </p>
-  <a href="<%=  %>">
-    <strong id="readers" class="stat">
-      (<%= @user.boards.count('name', distinct: true) %>)
-    </strong>
-    boards
-  </a>
+  <div class="span3">
+    <a href="<%= publishers_user_path(@user) %>">
+      <strong id="publishers" class="stat">
+        <%= @user.publishers.count %>
+      </strong>
+      publishers
+    </a>
+    <a href="<%= readers_user_path(@user) %>">
+      <strong id="readers" class="stat">
+        <%= @user.readers.count %>
+      </strong>
+      subscribers
+    </a>
+  </div>
+</div>
+<div class="boards">
+  <div class="span2">
+    <a href="<%= user_path(@user) %>">
+      <strong id="library" class="stat">
+        <%= @user.boards.count('name', distinct: true) %>
+      </strong>
+      storyboards
+    </a>
+  </div>
 </div>

@@ -1,30 +1,28 @@
 <% provide(:title, @user.name) %>
+
 <div class="row">
-  <aside class="span4">
-    <section>
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-    <section>
-      <%= render 'shared/stats' %>
-      <%= render 'subscribe_form' if signed_in? %>
-    </section>
-    <p>
-      <%= link_to "Publish a story", write_path %>
-    </p>
-    <section>
-      <% unless @user.stories.nil? %>
-      <h4>Published stories:</h4>
-      <ol class="stories">
-        <% @user.stories.each do |s| %>
-        <li><%= link_to s.title, s %></li>
-        <% end %>
-      </ol>
-    <% end %>
-    </section>
+  <aside class="span3">
+  <%= render 'shared/floating_user_info' %>
   </aside>
-  
-  
+<% if @user.stories.any? %>
+  <div class="span2 offset1">
+    <div class="storyboard-container">
+      <div class="span8"><section>Works</section></div>
+      <div class="span8">
+        <% if current_user?(@user) %>
+          <%= link_to "Publish a story", write_path, class: "btn btn-block btn-primary" %>
+        <% end %>
+        <% unless @user.stories.nil? %>
+        <ul class="stories">
+          <% @user.stories.each do |s| %>
+          <li><%= link_to s.title, s %></li>
+          <% end %>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>    
 </div>
+
+<%= render 'shared/board' %>

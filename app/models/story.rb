@@ -22,7 +22,7 @@ class Story < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true, length: {maximum: 100, minimum: 3}
   validates :genre, presence: true
-  validates :blurb, presence: true, length: {maximum: 150, minimum: 10}
+  validates :blurb, presence: true, length: {maximum: 250, minimum: 10}
   validates :content, presence: true, length: {
                       maximum: 10000,
                       minimum: 500,

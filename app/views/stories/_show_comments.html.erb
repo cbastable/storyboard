@@ -1,7 +1,6 @@
 <div id="comments_count">Comments (<%= (@story.comments.count) %>)</div>
   <% if @comments.any? %>
-  <ol id="comments">
+  <ol class="comments">
   <%= render 'comments', collection: @comments %>
   </ol>
-  <%= will_paginate @comments %>
   <% end %>

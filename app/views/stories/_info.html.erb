@@ -1,0 +1,16 @@
+<div class="stats">
+      <div class="span2">
+        <a href="#">
+        <strong id="viewcount" class="stat">
+        <%= @story.stats.find(:all, group: 'viewer_id').count %>
+        </strong>
+        views
+        </a>
+        <a href="#">
+        <strong id="upvotes" class="stat">
+        <%= "#" %>
+        </strong>
+        upvotes
+        </a>
+      </div>
+</div>

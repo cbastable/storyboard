@@ -14,7 +14,7 @@ def create
   if @story.save
     @stats.save
     flash[:success] = "Story pinned successfully"
-    redirect_to current_user_path
+    redirect_to story_path(@story)
   else
     render 'new'
   end
@@ -22,11 +22,16 @@ end
 
 def show
   @story = Story.find_by_id(params[:id])
-  @comments = @story.comments.paginate(page: params[:page])
+  @comments = @story.comments.paginate(per_page: 10, page: params[:page])
+  @user = @story.user
   if signed_in?
     @comment = @story.comments.build
     @comment.user_id = current_user.id
   end
+  respond_to do |format|
+        format.html
+        format.js
+      end
 end
 
 def edit

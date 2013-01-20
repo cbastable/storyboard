@@ -1,7 +1,7 @@
 Storyboard::Application.routes.draw do
   resources :users do
     member do
-      get :publishers, :readers, :library_stories
+      get :publishers, :readers, :library_stories, :boards
     end
   end
   resources :sessions,        only: [:new, :create, :destroy]
@@ -10,6 +10,7 @@ Storyboard::Application.routes.draw do
       put :upvote, :downvote, :no_vote
     end
   end
+  
   resources :comments,        only: [:create, :destroy]
   
   resources :relationships,   only: [:create, :destroy]

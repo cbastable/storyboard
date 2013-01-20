@@ -1,5 +1,3 @@
-<p>Views <%= (@story.stats.find(:all, group: 'viewer_id').count) %></p>
-<p>Upvotes <%= '#' %></p>
 <%= form_for(@story.stats.build(story_id: @story.id, viewer_id: current_user.id),
               remote: true) do |f| %>
   <div><%= f.hidden_field :story_id %></div>

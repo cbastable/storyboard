@@ -1,44 +1,53 @@
 <% provide(:title, @story.title) %>
 <div class="row">
-  <aside class="span4">
-    <section>
-      <% if current_user?(@story.user) %>
-        <p>Hello author</p>
-      <%= link_to "Edit story", edit_story_path %>
-      <%= link_to "Delete story", @story,  method: :delete,
-                                      data: {confirm: "Delete story?"}
-                                       %>
-    <% end %>
-    </section>
+  <aside class="span3">
+  <%= render 'shared/floating_story_info' %>
+  <div class="storyboard-seperator"></div>
+  <%= render 'shared/floating_user_info' %>
   </aside>
-  <aside class="span8">
-    <section>
-      <h2><%= @story.title %></h2>
-      <h4><%= @story.genre %></h4>
-      <p><%= @story.blurb %></p>
-      <aside class="span8">
-      <section>
-      <%= render 'stat_form' %>
-      </section>
-      </aside>
-      <h3>Story:</h3>
-      <p><%= @story.content %></p>
-    </section>
-  </aside>
-   <aside class="span8">
-    <section>
-      <%= render 'upvote_story_form' %>
-      <%= render 'storyboard_form' %>
-    </section>
-  </aside>
-  <aside class="span6">
-      <div id="user_info_for_comment"><%= render 'shared/user_info' %></div>
-      <div><%= render 'comment_form' %></div> 
-  </aside>
-  <div class="span8">
-    <h3>Comments</h3>
-    <div><%= render 'show_comments' %></div>
+  
+<div class="span8 offset1">
+    <div class="row">
+      <div class="span5">
+      <div class="genre-tags">
+        <ul>
+          <li><%= image_tag "rails.png" %></li>
+          <li><%= image_tag "rails.png" %></li>
+          <li><%= image_tag "rails.png" %></li>
+        </ul>
+      </div>
+      </div>
+    </div>
+    <div class="row">
+        <% if current_user?(@story.user) %>
+          <div class="span2"><%= link_to "Edit story", edit_story_path %></div>
+          <div class="span2 offset1"><%= link_to "Delete story", @story,  method: :delete,
+              data: {confirm: "Delete story?"} %>
+          </div>
+        <% end %>
+    </div>
+  
+    <div class="row">
+      <div class="row"><h3><%= @story.title %></h3></div>
+      <div class="row"><p><%= @story.blurb %></p></div>
+      <div class="row"><%= render 'view_story_form' %></div>
+      <div class="row"><p><%= @story.content %></p></div>
+      
+      <div class="row">
+        <% unless @story.stats.find_by_viewer_id(current_user.id).nil? %>
+        <aside class="span2"><%= render 'upvote_story_form' %></aside>
+        <div class="span6"><%= render 'storyboard_form' %></div>
+      <% end %>
+      </div>
+      
+      <div class="row">
+        <aside class="span2"><%= render 'shared/user_info' %></aside>
+        <aside class="span6"><%= render 'comment_form' %></aside>
+      </div>  
+
+      <div class="row">
+        <div class="span8"><%= render 'show_comments' %></div>
+      </div>
+    </div>
   </div>
-  
-  
 </div>
