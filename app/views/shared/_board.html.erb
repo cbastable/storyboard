@@ -1,4 +1,4 @@
-<% @user.boards.find(:all, group: :name).each do |board| %>
+<% @user.boards.select("DISTINCT name").each do |board| %>
 <hr class="storyboard-seperator">
 
 <div class="row">

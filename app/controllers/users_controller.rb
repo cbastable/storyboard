@@ -78,7 +78,7 @@ class UsersController < ApplicationController
     @title = "Library stories"
     @user = User.find(params[:id])
     @storyboards = @user.boards
-    @board_stories = @user.library_stories.find(:all, group: :name).paginate(page: params[:page])
+    @board_stories = @user.library_stories.select("DISTINCT name").paginate(page: params[:page])
     render 'show_library'
   end
 
