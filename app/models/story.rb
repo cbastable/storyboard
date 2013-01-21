@@ -41,6 +41,10 @@ class Story < ActiveRecord::Base
     comments.find_by_id(comment.id).destroy
   end
   
+  def preview(story)
+    story.content.split(" ").first(100).join(" ") + "..."
+  end
+  
   
   default_scope order: 'stories.created_at DESC'
   

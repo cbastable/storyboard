@@ -1,23 +1,13 @@
 <% provide(:title, @story.title) %>
 <div class="row">
   <aside class="span3">
-  <%= render 'shared/floating_story_info' %>
+  <div id="story-info"><%= render 'shared/floating_story_info' %></div>
   <div class="storyboard-seperator"></div>
-  <%= render 'shared/floating_user_info' %>
+  <div id="author-info"><%= render 'shared/floating_user_info' %></div>
   </aside>
   
 <div class="span8 offset1">
-    <div class="row">
-      <div class="span5">
-      <div class="genre-tags">
-        <ul>
-          <li><%= image_tag "rails.png" %></li>
-          <li><%= image_tag "rails.png" %></li>
-          <li><%= image_tag "rails.png" %></li>
-        </ul>
-      </div>
-      </div>
-    </div>
+    <div id="genre-tags" class="row"><%= render 'display_genre_tags' %></div>
     <div class="row">
         <% if current_user?(@story.user) %>
           <div class="span2"><%= link_to "Edit story", edit_story_path %></div>
@@ -28,21 +18,19 @@
     </div>
   
     <div class="row">
-      <div class="row"><h3><%= @story.title %></h3></div>
-      <div class="row"><p><%= @story.blurb %></p></div>
-      <div class="row"><%= render 'view_story_form' %></div>
-      <div class="row"><p><%= @story.content %></p></div>
+      <div id="title" class="row"><%= render 'display_title' %></div>
+      <div id="blurb" class="row"><%= render 'display_blurb' %></div>
+      <div id="story" class="row"><%= render 'display_story' %></div>
       
-      <div class="row">
-        <% unless @story.stats.find_by_viewer_id(current_user.id).nil? %>
-        <aside class="span2"><%= render 'upvote_story_form' %></aside>
-        <div class="span6"><%= render 'storyboard_form' %></div>
+      <% if !@stats || @stats.viewed == false %>
+      <div id="view-story" class="row"><%= render 'view_story_form' %></div>
       <% end %>
-      </div>
       
-      <div class="row">
-        <aside class="span2"><%= render 'shared/user_info' %></aside>
-        <aside class="span6"><%= render 'comment_form' %></aside>
+      <div id="render-review"><%= render 'review_forms' %></div>
+      
+      <div id="comment-holder" class="row">
+        <div id="comment-profile-pic" class="span2"><%= render 'shared/user_info' %></div>
+        <div id="comment-text-area" class="span6"><%= render 'comment_form' %></div>
       </div>  
 
       <div class="row">

@@ -1,0 +1,8 @@
+<% if @stats %>
+  <% if @stats.viewed == true %>
+    <div id="review-forms" class="row">
+      <div id="upvote-story-form" class="span2"><%= render 'stories/upvote_story_form' %></div>
+      <div id="storyboard-form" class="span6"><%= render 'stories/storyboard_form' %></div>
+    </div>
+  <%end %>
+<% end %>

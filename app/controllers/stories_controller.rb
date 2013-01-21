@@ -26,6 +26,8 @@ def show
   @story = Story.find_by_id(params[:id])
   @comments = @story.comments.paginate(per_page: 10, page: params[:page])
   @user = @story.user
+  @preview = @story.preview(@story)
+  @stats = @story.stats.find_by_viewer_id(current_user.id)
   if signed_in?
     @comment = @story.comments.build
     @comment.user_id = current_user.id

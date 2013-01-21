@@ -1,0 +1,7 @@
+<% if @stats %>
+  <% if @stats.viewed == true %>
+<div id="story-content"><%= simple_format(@story.content) %></div>
+  <% end %>
+<% else %>
+<div id="story-preview"><%= simple_format(@preview) %></div>
+<% end %>
