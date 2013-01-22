@@ -1,0 +1,5 @@
+<ul class="stories">
+  <% @new_stories.each do |story| %>
+    <li id="<%=story.id%>"><%= link_to story.title, story %></li>
+  <% end %>
+</ul>

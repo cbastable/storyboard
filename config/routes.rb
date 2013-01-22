@@ -17,12 +17,13 @@ Storyboard::Application.routes.draw do
   resources :boards,          only: [:create, :destroy]
   resources :stats,           only: [:create]
   
-  root to: 'users#index'
+  root to: 'browse_pages#home'
   
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   
+  match '/library', to: 'users#library'
 
   match '/write',     to: 'stories#new' 
   #match '/:id',       to: 'stories#show'

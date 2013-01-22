@@ -1,0 +1,10 @@
+<ul id="publishers">
+  <% if @publishers.any? %>
+      <% @publishers.each do |publisher| %>
+        <li id="<%=publisher.id%>">
+          <div id="picture"><%= link_to gravatar_for(publisher, size: 30), publisher %></div>
+          <div id="name"><%= link_to publisher.name, publisher %></div>
+        </li>
+      <% end %>
+  <% end %>
+</ul>

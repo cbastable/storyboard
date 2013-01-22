@@ -1,5 +1,3 @@
-<section>
-    <%= gravatar_for @user %>
-    <h1><%= @user.name %></h1>
-</section>
-<section><%= render 'shared/stats' %></section>
+<div id="user-name"><%= @user.name %></div>
+<div id="user-pic"><%= gravatar_for @user %></div>
+<div id="user-info"><%= render 'shared/stats' %></div>

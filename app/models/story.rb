@@ -15,6 +15,10 @@
 class Story < ActiveRecord::Base
   attr_accessible :blurb, :content, :genre, :title
   belongs_to :user
+  #belongs_to :genre_1, class_name: "Genre"
+  #belongs_to :genre_1, class_name: "Genre"
+  #belongs_to :genre_1, class_name: "Genre"
+  
   has_many :stats, dependent: :destroy
   has_many :comments, dependent: :destroy
   

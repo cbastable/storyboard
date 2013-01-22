@@ -60,6 +60,9 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page])
   end
   
+  def library
+  end
+  
   def publishers
     @title = "Publishers"
     @user = User.find(params[:id])
