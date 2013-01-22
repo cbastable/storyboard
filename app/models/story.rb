@@ -2,22 +2,25 @@
 #
 # Table name: stories
 #
-#  id         :integer          not null, primary key
-#  user_id    :integer
-#  title      :string(255)
-#  blurb      :string(255)
-#  genre      :string(255)
-#  content    :text
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                 :integer          not null, primary key
+#  user_id            :integer
+#  title              :string(255)
+#  blurb              :string(255)
+#  content            :text
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  primary_genre_id   :integer
+#  secondary_genre_id :integer
+#  tertiary_genre_id  :integer
 #
 
 class Story < ActiveRecord::Base
-  attr_accessible :blurb, :content, :genre, :title
+  attr_accessible :title, :blurb, :content, :primary_genre_id, :secondary_genre_id, :tertiary_genre_id
   belongs_to :user
-  #belongs_to :genre_1, class_name: "Genre"
-  #belongs_to :genre_1, class_name: "Genre"
-  #belongs_to :genre_1, class_name: "Genre"
+  belongs_to :primary_genre,    class_name: "Genre"
+  belongs_to :secondary_genre,  class_name: "Genre"
+  belongs_to :tertiary_genre,   class_name: "Genre"
+  
   
   has_many :stats, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -25,12 +28,12 @@ class Story < ActiveRecord::Base
   # validate for max/min lengths too
   validates :user_id, presence: true
   validates :title, presence: true, length: {maximum: 100, minimum: 3}
-  validates :genre, presence: true
   validates :blurb, presence: true, length: {maximum: 250, minimum: 10}
   validates :content, presence: true, length: {
                       maximum: 10000,
                       
                       tokenizer: lambda {|str| str.scan(/\s+|$/)} }
+  validates :primary_genre, presence: true
   # minimum: 500, removed for db population
   
   def add_to_stats!(stat)

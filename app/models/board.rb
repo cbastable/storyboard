@@ -16,6 +16,7 @@ class Board < ActiveRecord::Base
   belongs_to :user
   belongs_to :library_story, class_name: "Story", foreign_key: "story_id"
   
+  
   validates :name, presence: true, length: {maximum: 50}
   validates :user_id, presence: true
 end

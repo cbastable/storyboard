@@ -4,7 +4,6 @@
     <% @recommended_stories << publisher.stories.offset(rand(publisher.stories.count)).first %>
   <% end %>
 <% end %>
-
 <% @recommended_stories.each do |story| %>
   <li id="<%=story.id%>">
     <div id="story"><%= link_to story.title, story %></div>

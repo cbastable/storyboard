@@ -3,37 +3,21 @@
     <div id="publish">
       <% if signed_in? %>
         <%= link_to "Publish a story", write_path, class: "btn btn-block btn-primary" %>
-      <% end %></div>
+      <% end %>
+    </div>
     <div id="user-info">
       <%= render 'shared/floating_user_info' %>
     </div>
     <div id="home-publishers"><%= render 'publishers' %></div>
-    </div>
+  </div>
    
   <div id="home-center" class="span7">
     <div id="new-and-popular"><%= render 'new_boards' %></div>
     <div id="genre-boards"><%= render 'genre_boards'%></div>
   </div>
   
-  <div class="span3">
-    <div id="home-recommended-stories"><%= render 'recommended_stories' %></div>
+  <div id="home-right" class="span3">
+    <div id="recommended-stories"><%= render 'recommended_stories' %></div>
   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
 </div>

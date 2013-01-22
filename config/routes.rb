@@ -1,19 +1,21 @@
 Storyboard::Application.routes.draw do
+  
   resources :users do
     member do
       get :publishers, :readers, :library_stories, :boards
     end
   end
-  resources :sessions,        only: [:new, :create, :destroy]
+  
   resources :stories do
     member do
       put :upvote, :downvote, :no_vote
     end
   end
   
-  resources :comments,        only: [:create, :destroy]
-  
+  resources :sessions,        only: [:new, :create, :destroy]
   resources :relationships,   only: [:create, :destroy]
+  resources :comments,        only: [:create, :destroy]
+  resources :genres,          only: [:create, :destroy]
   resources :boards,          only: [:create, :destroy]
   resources :stats,           only: [:create]
   

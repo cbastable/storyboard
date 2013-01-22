@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130118021158) do
+ActiveRecord::Schema.define(:version => 20130122015858) do
 
   create_table "boards", :force => true do |t|
     t.integer  "user_id"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(:version => 20130118021158) do
 
   add_index "comments", ["rating"], :name => "index_comments_on_rating"
   add_index "comments", ["user_id", "created_at"], :name => "index_comments_on_user_id_and_created_at"
+
+  create_table "genres", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "genres", ["name"], :name => "index_genres_on_name", :unique => true
 
   create_table "relationships", :force => true do |t|
     t.integer  "reader_id"
@@ -67,13 +75,20 @@ ActiveRecord::Schema.define(:version => 20130118021158) do
     t.integer  "user_id"
     t.string   "title"
     t.string   "blurb"
-    t.string   "genre"
     t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "primary_genre_id"
+    t.integer  "secondary_genre_id"
+    t.integer  "tertiary_genre_id"
   end
 
-  add_index "stories", ["user_id", "title", "genre", "created_at"], :name => "index_stories_on_user_id_and_title_and_genre_and_created_at"
+  add_index "stories", ["created_at"], :name => "index_stories_on_created_at"
+  add_index "stories", ["primary_genre_id"], :name => "index_stories_on_primary_genre_id"
+  add_index "stories", ["secondary_genre_id"], :name => "index_stories_on_secondary_genre_id"
+  add_index "stories", ["tertiary_genre_id"], :name => "index_stories_on_tertiary_genre_id"
+  add_index "stories", ["title"], :name => "index_stories_on_title"
+  add_index "stories", ["user_id"], :name => "index_stories_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

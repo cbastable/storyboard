@@ -400,3 +400,89 @@ input {
     margin-bottom: 5px;
   }
 }
+
+/* Home page */
+
+#publish {
+  margin: 20px 0px 10px 0px;
+}
+
+#user-info {
+  p {
+    line-height: 1;
+    font-size: 1.6em;
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+    }
+  
+  
+}
+
+#home-publishers {
+  ul {
+    display: inline;
+    list-style: none;
+  li {
+    margin: 30px 0px 30px 0px;
+    padding: 5px 0px 0px 0px;
+    border-top: 1px solid $grayLighter;
+    }
+  }
+
+}
+
+#new-and-popular{
+    height: 250px !important;
+    overflow: scroll;
+    float: left;
+    margin: 20px 0px 20px 0px;
+    padding: 5px 20px 5px 0px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+    ul {
+    float: left;
+    list-style: none;
+    li {
+      float: left;
+      margin: 140px 50px 10px 0px;
+    }
+  }
+}
+
+#genre{
+    height: 250px !important;
+    overflow: scroll;
+    float: left;
+    margin: 20px 0px 20px 0px;
+    padding: 5px 20px 5px 0px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+    
+    
+    ul {
+    float: left;
+    list-style: none;
+    li {
+      float: left;
+      margin: 140px 50px 10px 0px;
+    }
+  }
+}
+
+#recommended-stories {
+  ul {
+    display: inline;
+    list-style: none;
+  li {
+    margin: 30px 0px 30px 0px;
+    padding: 5px 0px 0px 0px;
+    }
+  }
+
+}

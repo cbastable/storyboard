@@ -3,8 +3,14 @@
 <%= f.label :title %>
 <%= f.text_field :title %>
 
-<%= f.label :genre %>
-<%= f.text_field :genre %>
+<%= f.label :primary_genre %>
+<%= f.collection_select(:primary_genre_id, Genre.all, :id, :name, prompt: true) %>
+
+<%= f.label :secondary_genre %>
+<%= f.collection_select(:secondary_genre_id, Genre.all, :id, :name, prompt: "Optional...") %>
+
+<%= f.label :tertiary_genre %>
+<%= f.collection_select(:tertiary_genre_id, Genre.all, :id, :name, prompt: "Optional...") %>
 
 <div class="field">
 <%= f.label :blurb %>

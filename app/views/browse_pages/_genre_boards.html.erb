@@ -1,20 +1,11 @@
-<% Board.select("DISTINCT genre").each do |board| %>
-<hr class="storyboard-seperator">
-
-<div class="row">
-  <div class="span2 offset4">
-    <div class="storyboard-container">
-      <div class="span8"><section><%= board.name %></section></div>
-      <div class="span8">
-      <ul class="stories">
-        <% @user.boards.each do |b| %>
-          <% if b.name == board.name && !b.library_story.nil? %>
-           <li><%= link_to b.library_story.title, b.library_story %></li>
-         <% end %>
-        <% end %>
-      </ul>
-      </div>
-    </div>
+<% Genre.all.each do |genre| %>
+  <% if genre.primary_stories.any? %>
+  <div id="genre">
+  <ul class="stories">
+    <% genre.primary_stories.each do |story| %>
+      <li id="<%=story.id%>"><%= link_to story.title, story %></li>
+    <% end %>
+  </ul>
   </div>
-</div>
+  <% end %>
 <% end %>

@@ -3,6 +3,7 @@ namespace :db do
   task populate: :environment do
     make_users
     make_relationships
+    make_genres
     make_stories
     make_comments
     
@@ -15,7 +16,7 @@ def make_users
                        password: "foobar",
                        password_confirmation: "foobar")
   admin.toggle!(:admin)
-  500.times do |n|
+  400.times do |n|
     name  = Faker::Name.first_name
     email = "example-#{n+1}@example.com"
     password  = "password"
@@ -30,20 +31,36 @@ def make_relationships
   users = User.all
   user  = users.first
   publishers = users[2..100]
-  subscribers      = users[10..450]
+  subscribers      = users[10..350]
   publishers.each { |publisher| user.subscribe!(publisher) }
   subscribers.each      { |subscriber| subscriber.subscribe!(user) }
 end
 
+def make_genres
+  Genre.create!(name: "Fiction")
+  Genre.create!(name: "Romance")
+  Genre.create!(name: "Fantasy")
+  Genre.create!(name: "Mystery")
+  Genre.create!(name: "Sci Fi")
+  Genre.create!(name: "Horror")
+  Genre.create!(name: "Crime")
+  Genre.create!(name: "Paranormal")
+  Genre.create!(name: "Urban Fantasy")
+  Genre.create!(name: "Thriller")
+  Genre.create!(name: "Teen")
+  Genre.create!(name: "Western")
+  Genre.create!(name: "Fan Fiction")
+end
+
 def make_stories
-  users = User.all(limit: 100)
-    5.times do
+  users = User.all(limit: 10)
+    50.times do
       title = Faker::Lorem.sentence(1)
-      genre = Faker::Lorem.sentence(1)
+      genre = Genre.find((rand(12)+1))
       blurb = Faker::Lorem.sentence(5)
       content = Faker::Lorem.sentence(250)
       users.each { |user| user.stories.create!( title: title,
-                                                genre: genre,
+                                                primary_genre_id: genre.id,
                                                 blurb: blurb,
                                                 content: content) }
                                                 
