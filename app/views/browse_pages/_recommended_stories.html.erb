@@ -1,12 +1,10 @@
-<ul id="rec-stories">
 <% @user.publishers.each do |publisher| %>
   <% if publisher.stories.any? %>
     <% @recommended_stories << publisher.stories.offset(rand(publisher.stories.count)).first %>
   <% end %>
 <% end %>
-<% @recommended_stories.each do |story| %>
-  <li id="<%=story.id%>">
-    <div id="story"><%= link_to story.title, story %></div>
-  </li>
+<ul id="rec-stories">
+  <% @recommended_stories.each do |story| %>
+    <li id="<%=story.id%>-rec"><%= render 'story_thumb', story: story %></li>
 <% end %>
 </ul>

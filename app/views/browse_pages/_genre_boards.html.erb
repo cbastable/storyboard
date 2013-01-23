@@ -1,11 +1,12 @@
 <% Genre.all.each do |genre| %>
   <% if genre.primary_stories.any? %>
   <div id="genre">
-  <ul class="stories">
-    <% genre.primary_stories.each do |story| %>
-      <li id="<%=story.id%>"><%= link_to story.title, story %></li>
-    <% end %>
-  </ul>
+    <div id="<%= genre.id %>" class="board-heading"><%= genre.name %></div>
+    <ul class="stories">
+      <% genre.primary_stories.each do |story| %>
+        <li id="<%=story.id%>-genre"><%= render 'story_thumb', story: story %></li>
+      <% end %>
+    </ul>
   </div>
   <% end %>
 <% end %>

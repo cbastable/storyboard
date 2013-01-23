@@ -1,22 +1,28 @@
 <div class="row">
-  <div id="home-left" class="span3">
+  
+  <div id="home-left" class="span2">
+    
     <div id="publish">
       <% if signed_in? %>
-        <%= link_to "Publish a story", write_path, class: "btn btn-block btn-primary" %>
+        <%= link_to(write_path, class: "btn btn-block btn-primary") do %>
+        <i class="icon-pencil icon-white"></i> Publish a story
+        <% end %>
       <% end %>
     </div>
+    
     <div id="user-info">
       <%= render 'shared/floating_user_info' %>
     </div>
     <div id="home-publishers"><%= render 'publishers' %></div>
   </div>
-   
-  <div id="home-center" class="span7">
+  
+  <div id="home-center" class="span9">
     <div id="new-and-popular"><%= render 'new_boards' %></div>
     <div id="genre-boards"><%= render 'genre_boards'%></div>
   </div>
   
-  <div id="home-right" class="span3">
+  <div id="home-right" class="span1">
+    <div id="recommended-tag"><h6>Recommended</h6></div>
     <div id="recommended-stories"><%= render 'recommended_stories' %></div>
   </div>
 
