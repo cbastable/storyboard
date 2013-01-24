@@ -1,0 +1,10 @@
+<% provide(:title, 'Storyboard / Stories') %>
+<h1>All stories</h1>
+
+<%= will_paginate %>
+
+<ul class="stories">
+  <%= @stories.each do |story| %>
+     <li id="<%=story.id%>-genre"><%= render 'browse_pages/story_thumb', story: story %></li>
+  <% end %>
+</ul>

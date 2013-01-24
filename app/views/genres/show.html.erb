@@ -1,0 +1,40 @@
+<% provide(:title, @genre.name) %>
+
+<div class="row">
+<div id="genre-page">
+  
+  <div id="genre-left">
+    <div id="publish">
+      <%= link_to(write_path, class: "btn btn-block btn-primary") do %>
+      <i class="icon-pencil icon-white"></i> Publish a story
+      <% end %>
+    </div>
+    
+    <div id="user-info">
+      <%= render 'shared/floating_user_info' %>
+    </div>
+    <div id="genre-publishers">
+      <h6>Top <%= @genre.name.downcase %> publishers</h6>
+      <%= render 'genre_publishers' %>
+    </div>
+  </div>
+  
+  
+  <div id="genre-center">
+    <div id="genre-show">
+      <div class="board-heading">
+        <%= render 'shared/board_nav_bar', genre: @genre %>
+      </div>
+      <ul class="stories">
+        <%= render 'genre_stories' %>
+      </ul>
+      <%= link_to(genre_path(page: (params[:page].to_i || 1)+1,
+                                      per_page: params[:per_page] || 12),
+                                      class: "hook btn btn-primary", remote: true) do %>
+                                      <i class="icon-circle-arrow-down icon-white"></i> More...
+                                      <% end %>
+    </div>
+  </div>
+  
+</div>
+</div>

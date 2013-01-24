@@ -1,0 +1,12 @@
+<% provide(:title, 'Storyboard / Genres') %>
+<h1>All genres</h1>
+
+<%= will_paginate %>
+
+<ul class="genres">
+  <%= @genres.each do |genre| %>
+    <%= render 'genre', genre: genre %>
+  <% end %>
+</ul>
+
+<%= will_paginate %>

@@ -1,12 +1,8 @@
-<% Genre.all.each do |genre| %>
-  <% if genre.primary_stories.any? %>
-  <div id="genre">
-    <div id="<%= genre.id %>" class="board-heading"><%= genre.name %></div>
-    <ul class="stories">
-      <% genre.primary_stories.each do |story| %>
-        <li id="<%=story.id%>-genre"><%= render 'story_thumb', story: story %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
-<% end %>
+<ul class="genres">
+  <%= render 'genres' %>
+</ul>
+<%= link_to(root_path(page: (params[:page].to_i || 1)+1,
+                                      per_page: params[:per_page] || 3),
+                                      class: "hook btn btn-block btn-primary", remote: true) do %>
+                                      <i class="icon-circle-arrow-down icon-white"></i> More...
+                                    <% end %>

@@ -13,9 +13,9 @@ Storyboard::Application.routes.draw do
   end
   
   resources :sessions,        only: [:new, :create, :destroy]
+  resources :genres
   resources :relationships,   only: [:create, :destroy]
   resources :comments,        only: [:create, :destroy]
-  resources :genres,          only: [:create, :destroy]
   resources :boards,          only: [:create, :destroy]
   resources :stats,           only: [:create]
   
@@ -25,7 +25,9 @@ Storyboard::Application.routes.draw do
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   
-  match '/library', to: 'users#library'
+  match '/library', to: 'users#show'
+  
+  
 
   match '/write',     to: 'stories#new' 
   #match '/:id',       to: 'stories#show'

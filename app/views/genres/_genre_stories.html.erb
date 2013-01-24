@@ -1,0 +1,3 @@
+<% @primary_stories.each do |story| %>
+  <li id="<%=story.id%>-genre"><%= render 'browse_pages/story_thumb', story: story %></li>
+<% end %>

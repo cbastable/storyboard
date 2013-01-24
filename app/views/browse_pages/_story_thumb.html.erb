@@ -11,7 +11,7 @@
           <a href="<%= story_path(story) %>">
              <%= image_tag("rails.png", width: "200px") %>
              <span class="word-count"><%= story.content.length %> words</span>
-             <span class="read-later"><%= render 'add_to_read_later', story: story %></span>
+             <span class="read-later"><%= render 'browse_pages/add_to_read_later', story: story %></span>
           </a>
     </div>
     

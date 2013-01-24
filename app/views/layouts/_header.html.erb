@@ -6,7 +6,7 @@
         <ul class="nav pull-right">
           <li><%= link_to "Home", root_path %></li>
           <% if signed_in? %>
-            <li><%= link_to(user_path(@user)) do %>
+            <li><%= link_to(current_user) do %>
                  <i class="icon-book icon-white"></i> Library
                 <% end %>
             </li>

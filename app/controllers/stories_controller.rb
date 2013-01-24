@@ -1,11 +1,15 @@
 class StoriesController < ApplicationController
-before_filter :signed_in_user, only: [:new, :create, :show, :edit, :destroy]
+before_filter :signed_in_user, only: [:new, :create, :index, :show, :edit, :destroy]
 before_filter :correct_user, only: [:edit, :destroy]
 
 
 def new
   @story = Story.new
   @stats = Stat.new
+end
+
+def index
+  @stories = Story.paginate(page: params[:page])
 end
 
 def create

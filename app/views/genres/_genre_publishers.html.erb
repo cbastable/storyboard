@@ -1,0 +1,8 @@
+<ul id="genre-publishers">
+      <% @primary_stories.each do |story| %>
+        <li id="<%=story.user.id%>">
+            <div id="picture"><%= link_to gravatar_for(story.user, size: 40), story.user %></div>
+            <div id="name"><%= link_to story.user.name, story.user %></div>
+        </li>
+      <% end %>
+</ul>

@@ -13,4 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require jquery.inview.min.js
 //= require_tree .
+
+$(document).ready(function() {
+  $('a.hook').bind('inview', function(e,visible) {
+    if( visible ) {
+      $.getScript($(this).attr("href"));
+    }
+  });
+  
+  $('a.hook2').bind('inview', function(e,visible) {
+    if( visible ) {
+      $.getScript($(this).attr("href"));
+    }
+  });
+  
+});
+
