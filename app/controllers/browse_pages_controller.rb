@@ -4,7 +4,7 @@ class BrowsePagesController < ApplicationController
   def home
     @user = current_user
     @publishers = @user.publishers.last(10)
-    @genres = Genre.scoped.paginate(page: params[:page], per_page: params[:per_page] || 13)
+    @genres = Genre.scoped.paginate(page: params[:page], per_page: params[:per_page] || 4)
     @new_stories = Story.scoped.paginate(page: params[:new_stories_page], per_page: params[:per_page] || 8)
     
     @genre_stories = @genres.inject({}) do |hash, genre|

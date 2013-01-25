@@ -5,52 +5,11 @@
   <%= render 'new_stories' %>
 </ul>
 
- <div class="browse-more-stories"><%= link_to(root_path(new_stories_page: (params[:new_stories_page].to_i || 1)+1,
+ <div class="browse-more-stories">
+  <%= link_to(root_path(new_stories_page: (params[:new_stories_page].to_i || 1)+1,
                                       params: {param_name: "new_stories_page"},
                                       per_page: params[:per_page] || 8),
                                       class: "hook2 btn btn-primary", remote: true) do %>
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
-                                    <% end %></div>
-<%= will_paginate @new_stories, param_name: "new_stories_page" %>
-
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    
-                                    <% if false %>
-                                    
-<div class="browse-more-stories"><%= link_to(root_path(page: (params[:new_stories_page].to_i || 1)+1,
-                                      param_name: "new_stories_page",
-                                      per_page: params[:per_page] || 8),
-                                      class: "hook2 btn btn-primary", remote: true) do %>
-                                      <i class="icon-circle-arrow-down icon-white"></i> More...
-                                    <% end %></div>
-
-
-                                    
-                                    <%= link_to(root_path(page: (params[:page].to_i || 1)+1,
-                                      per_page: params[:per_page] || 3),
-                                      class: "hook btn btn-block btn-primary", remote: true) do %>
-                                      <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
-                                    
-                                    
-                                    
-                                    
-                                    <div class="browse-more-stories"><%= link_to(root_path(page: (params[:new_stories_page].to_i || 1)+1,
-                                      params: {param_name: "new_stories_page"},
-                                      per_page: params[:per_page] || 8),
-                                      class: "hook2 btn btn-primary", remote: true) do %>
-                                      <i class="icon-circle-arrow-down icon-white"></i> More...
-                                    <% end %></div>
-                                    
-                                    
-                                    
-                                    
-                                    <% end %>
+  </div>

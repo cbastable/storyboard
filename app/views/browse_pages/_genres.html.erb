@@ -1,22 +1,3 @@
-<% if false %>
-    
-    <% @genres.each do |genre| %>
-    <li>
-        <div class="genre">
-          <div class="board-heading">
-            <%= render 'shared/board_nav_bar', genre: genre %>
-          </div>
-          <ul class="stories">
-            <%= render 'browse_pages/genre_stories', genre: genre %>
-          </ul>
-    
-        </div>
-    </li>
-    <% end %>
-
-<% end %>
-
-
 <% for genre, primary_stories in @genre_stories %>
 <li>
     <div class="genre">
