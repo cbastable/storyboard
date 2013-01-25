@@ -29,5 +29,11 @@ $(document).ready(function() {
     }
   });
   
+  $('a.hook3').bind('inview', function(e,visible) {
+    if( visible ) {
+      $.getScript($(this).attr("href"));
+    }
+  });
+  
+  
 });
-

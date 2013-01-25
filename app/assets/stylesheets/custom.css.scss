@@ -554,6 +554,7 @@ input {
 .genre {
     height: 300px !important;
     overflow-y: scroll;
+    overflow-x: hidden;
     margin: 20px 0px 20px 0px;
     padding: 0px 0px 0px 0px;
     border: 1px solid $grayLighter;

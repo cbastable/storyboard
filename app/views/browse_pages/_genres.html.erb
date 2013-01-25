@@ -1,13 +1,35 @@
-<% @genres.each do |genre| %>
+<% if false %>
+    
+    <% @genres.each do |genre| %>
+    <li>
+        <div class="genre">
+          <div class="board-heading">
+            <%= render 'shared/board_nav_bar', genre: genre %>
+          </div>
+          <ul class="stories">
+            <%= render 'browse_pages/genre_stories', genre: genre %>
+          </ul>
+    
+        </div>
+    </li>
+    <% end %>
+
+<% end %>
+
+
+<% for genre, primary_stories in @genre_stories %>
 <li>
     <div class="genre">
       <div class="board-heading">
         <%= render 'shared/board_nav_bar', genre: genre %>
       </div>
-      <ul class="stories">
-        <%= render 'browse_pages/genre_stories', genre: genre %>
+      <ul id="<%=genre.name%>" class="stories">
+        <%= render 'genre_stories', genre: genre, primary_stories: primary_stories %>
       </ul>
+      <%= render 'genre_link_to_more', genre: genre, primary_stories: primary_stories %>
 
+   
     </div>
 </li>
 <% end %>
+

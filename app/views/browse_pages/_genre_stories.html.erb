@@ -1,3 +1,9 @@
-<% genre.primary_stories.each do |story| %>
-  <li id="<%=story.id%>-genre"><%= render 'browse_pages/story_thumb', story: story %></li>
+<% if false %>
+  <% genre.primary_stories.each do |story| %>
+    <li id="<%=story.id%>-genre"><%= render 'browse_pages/story_thumb', story: story %></li>
+  <% end %>
 <% end %>
+
+<% primary_stories.each do |story| %>
+ <li id="<%=story.id%>-genre"><%= render 'browse_pages/story_thumb', story: story %></li>
+<% end %> 

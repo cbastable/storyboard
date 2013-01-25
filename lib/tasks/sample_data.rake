@@ -41,15 +41,15 @@ def make_genres
   Genre.create!(name: "Romance")
   Genre.create!(name: "Fantasy")
   Genre.create!(name: "Mystery")
-  Genre.create!(name: "Sci Fi")
+  Genre.create!(name: "Sci-Fi")
   Genre.create!(name: "Horror")
   Genre.create!(name: "Crime")
   Genre.create!(name: "Paranormal")
-  Genre.create!(name: "Urban Fantasy")
+  Genre.create!(name: "Urban-fantasy")
   Genre.create!(name: "Thriller")
   Genre.create!(name: "Teen")
   Genre.create!(name: "Western")
-  Genre.create!(name: "Fan Fiction")
+  Genre.create!(name: "Fanfiction")
 end
 
 def make_stories
