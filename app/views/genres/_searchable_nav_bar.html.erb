@@ -1,0 +1,47 @@
+<div class="navbar navbar-static-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <% if defined? genre %>
+        <%= link_to genre.name, genre, class: 'brand' %>
+      <% else %>
+        <a class="brand" href="#"><%= title %></a>
+      <% end %>
+      <nav>
+        <ul class="nav pull-right">
+          <li class="">
+            
+            <%= form_tag genre_path(genre), class: "form-search", method: :get do %>
+              <div class="input-append">
+              <%= text_field_tag :search, params[:search], class: "span2 search-query" %>
+              <%= button_tag "Search", name: nil, class: "btn" %>
+              </div>
+            <% end %>
+                        
+            
+          </li>
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter 1 <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+            </ul>
+          </li>
+          
+           <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter 2 <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+            </ul>
+          </li>
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter 3 <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

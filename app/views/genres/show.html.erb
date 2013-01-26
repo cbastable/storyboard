@@ -23,12 +23,13 @@
   <div id="genre-center">
     <div id="genre-show">
       <div class="board-heading">
-        <%= render 'shared/board_nav_bar', genre: @genre %>
+        <%= render 'searchable_nav_bar', genre: @genre %>
       </div>
       <ul class="stories">
         <%= render 'genre_stories' %>
       </ul>
       <%= link_to(genre_path(page: (params[:page].to_i || 1)+1,
+                                      
                                       per_page: params[:per_page] || 12),
                                       class: "hook btn btn-primary", remote: true) do %>
                                       <i class="icon-circle-arrow-down icon-white"></i> More...

@@ -615,6 +615,7 @@ input {
 }
 
 #genre-show{
+  
     height: 90% !important;
   //  width: 695px !important;
     overflow-y: scroll;
@@ -646,6 +647,9 @@ input {
         padding: 0px 0px 0px 0px;
       }
       .navbar-inner {
+        
+        .navbar-form, .input-append, .btn {margin-top:0;}
+        
         ul {
          margin: 0px 0px 0px 0px;
          padding: 0px 0px 0px 0px;

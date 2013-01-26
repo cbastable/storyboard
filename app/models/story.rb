@@ -36,6 +36,27 @@ class Story < ActiveRecord::Base
   validates :primary_genre, presence: true
   # minimum: 500, removed for db population
   
+  define_index do
+    indexes :title
+    indexes :blurb
+    indexes :content
+    indexes user(:name), as: :author
+    indexes primary_genre(:name), as: :genre_1,   sortable: true
+    indexes secondary_genre(:name), as: :genre_2, sortable: true
+    indexes tertiary_genre(:name), as: :genre_3, sortable: true
+    
+    set_property field_weights: {
+      title: 30,
+      blurb: 10,
+      content: 1,
+      author: 30,
+      genre_1: 10, 
+      genre_2: 7, 
+      genre_3: 5
+    }  
+      has user_id, created_at, updated_at
+  end
+  
   def add_to_stats!(stat)
     stats.create!(viewer_id: stat.viewer_id, viewed: true)
   end
