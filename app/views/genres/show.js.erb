@@ -1,6 +1,6 @@
-<% if @stories.count>0 -%>
+<% if @stories.count > 0-%>
 $('.stories').append('<%= escape_javascript(render(partial: 'genre_stories')) %>');
-$('a.hook').attr('href', '<%= genre_path(page: (params[:page].to_i || 1)+1, per_page: params[:per_page] || 8) %>').show();
+$('a.hook').attr('href', '<%= genre_path(page: (params[:page].to_i || 2)+1, search: params[:search], per_page: params[:per_page] || @per_page) %>').show();
 <% else -%>
 $('a.hook').hide();
 <% end -%>

@@ -13,12 +13,13 @@ class GenresController < ApplicationController
   def show
     @user = current_user
     @genre = Genre.find(params[:id])
+    @per_page = 16
     
     #@primary_stories = @genre.primary_stories.scoped.paginate(page: params[:page], per_page: params[:per_page] || 0)
     #@stories = Story.search params[:search], include: :SOMETHING, page: 1, per_page: 24, order: :created_at, conditions: {genre_1: 'SOMETHING', created_at: 1.week.ago.to_i..Time.now.to_i }
     # , page: params[:page] || 16, per_page: 16,
     
-    @stories = Story.search( params[:search], page: params[:page], per_page: 10, conditions: {genre_1: @genre.name, author: "Example User"},
+    @stories = Story.search( params[:search], page: params[:page], per_page: @per_page, conditions: {genre_1: @genre.name},
                                             order: :created_at, sort_mode: :desc)
     
     

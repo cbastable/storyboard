@@ -1,7 +1,7 @@
 <div class="browse-more-stories">    
         <% case genre.name %>
           <% when "Fiction" then %>
-            <%= link_to root_path(Fiction: (params[:"#{genre.name}"].to_i || 1)+1,
+            <%= link_to root_path(Fiction: (params[:"#{genre.name}"].to_i || 2)+2,
                                       param_name: "#{genre.name}",
                                       per_page: params[:per_page] || 8),
                                       class: "#{genre.name} hook3 btn btn-primary",
@@ -10,7 +10,7 @@
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
           <% when "Romance" then %>
-            <%= link_to root_path(Romance: (params[:"#{genre.name}"].to_i || 1)+1,
+            <%= link_to root_path(Romance: (params[:"#{genre.name}"].to_i || 2)+2,
                                       param_name: "#{genre.name}",
                                       per_page: params[:per_page] || 8),
                                       class: "#{genre.name} hook3 btn btn-primary",
@@ -19,7 +19,7 @@
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
           <% when "Fantasy" then %>
-            <%= link_to root_path(Fantasy: (params[:"#{genre.name}"].to_i || 1)+1,
+            <%= link_to root_path(Fantasy: (params[:"#{genre.name}"].to_i || 2)+2,
                                       param_name: "#{genre.name}",
                                       per_page: params[:per_page] || 8),
                                       class: "#{genre.name} hook3 btn btn-primary",
@@ -28,7 +28,7 @@
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
          <% when "Mystery" then %>
-            <%= link_to root_path(Mystery: (params[:"#{genre.name}"].to_i || 1)+1,
+            <%= link_to root_path(Mystery: (params[:"#{genre.name}"].to_i || 2)+2,
                                       param_name: "#{genre.name}",
                                       per_page: params[:per_page] || 8),
                                       class: "#{genre.name} hook3 btn btn-primary",
@@ -37,7 +37,7 @@
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
         <% when "Science_fiction" then %>
-            <%= link_to root_path(science_fiction: (params[:"#{genre.name}"].to_i || 1)+1,
+            <%= link_to root_path(science_fiction: (params[:"#{genre.name}"].to_i || 2)+2,
                                       param_name: "#{genre.name}",
                                       per_page: params[:per_page] || 8),
                                       class: "#{genre.name} hook3 btn btn-primary",
@@ -46,7 +46,7 @@
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
         <% when "Horror" then %>
-            <%= link_to root_path(Horro: (params[:"#{genre.name}"].to_i || 1)+1,
+            <%= link_to root_path(Horro: (params[:"#{genre.name}"].to_i || 2)+2,
                                       param_name: "#{genre.name}",
                                       per_page: params[:per_page] || 8),
                                       class: "#{genre.name} hook3 btn btn-primary",
@@ -55,7 +55,7 @@
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
         <% when "Crime" then %>
-            <%= link_to root_path(Crime: (params[:"#{genre.name}"].to_i || 1)+1,
+            <%= link_to root_path(Crime: (params[:"#{genre.name}"].to_i || 2)+2,
                                       param_name: "#{genre.name}",
                                       per_page: params[:per_page] || 8),
                                       class: "#{genre.name} hook3 btn btn-primary",
@@ -64,7 +64,7 @@
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
         <% when "Paranormal" then %>
-            <%= link_to root_path(Paranormal: (params[:"#{genre.name}"].to_i || 1)+1,
+            <%= link_to root_path(Paranormal: (params[:"#{genre.name}"].to_i || 2)+2,
                                       param_name: "#{genre.name}",
                                       per_page: params[:per_page] || 8),
                                       class: "#{genre.name} hook3 btn btn-primary",
@@ -73,7 +73,7 @@
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
         <% when "Urban_fantasy" then %>
-            <%= link_to root_path(Urban_fantasy: (params[:"#{genre.name}"].to_i || 1)+1,
+            <%= link_to root_path(Urban_fantasy: (params[:"#{genre.name}"].to_i || 2)+2,
                                       param_name: "#{genre.name}",
                                       per_page: params[:per_page] || 8),
                                       class: "#{genre.name} hook3 btn btn-primary",
@@ -82,7 +82,7 @@
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
         <% when "Thriller" then %>
-            <%= link_to root_path(Thriller: (params[:"#{genre.name}"].to_i || 1)+1,
+            <%= link_to root_path(Thriller: (params[:"#{genre.name}"].to_i || 2)+2,
                                       param_name: "#{genre.name}",
                                       per_page: params[:per_page] || 8),
                                       class: "#{genre.name} hook3 btn btn-primary",
@@ -91,7 +91,7 @@
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
         <% when "Teen" then %>
-            <%= link_to root_path(Teen: (params[:"#{genre.name}"].to_i || 1)+1,
+            <%= link_to root_path(Teen: (params[:"#{genre.name}"].to_i || 2)+2,
                                       param_name: "#{genre.name}",
                                       per_page: params[:per_page] || 8),
                                       class: "#{genre.name} hook3 btn btn-primary",
@@ -100,7 +100,7 @@
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
         <% when "Western" then %>
-            <%= link_to root_path(Western: (params[:"#{genre.name}"].to_i || 1)+1,
+            <%= link_to root_path(Western: (params[:"#{genre.name}"].to_i || 2)+2,
                                       param_name: "#{genre.name}",
                                       per_page: params[:per_page] || 8),
                                       class: "#{genre.name} hook3 btn btn-primary",
@@ -109,7 +109,7 @@
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
         <% when "Fanfiction" then %>
-            <%= link_to root_path(Fanfiction: (params[:"#{genre.name}"].to_i || 1)+1,
+            <%= link_to root_path(Fanfiction: (params[:"#{genre.name}"].to_i || 2)+2,
                                       param_name: "#{genre.name}",
                                       per_page: params[:per_page] || 8),
                                       class: "#{genre.name} hook3 btn btn-primary",

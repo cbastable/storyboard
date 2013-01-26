@@ -4,12 +4,18 @@ class BrowsePagesController < ApplicationController
   def home
     @user = current_user
     @publishers = @user.publishers.last(10)
-    @genres = Genre.scoped.paginate(page: params[:page], per_page: params[:per_page] || 4)
-    @new_stories = Story.scoped.paginate(page: params[:new_stories_page], per_page: params[:per_page] || 8)
+    
+    
+    @genres_per_page = 13
+    @per_page = 13
+    #this is janky
+    @genres = Genre.scoped.paginate(page: params[:page], per_page: params[:per_page] || @genres_per_page)
+    
+    @new_stories = Story.scoped.paginate(page: params[:new_stories_page], per_page: params[:per_page] || @per_page)
     
     @genre_stories = @genres.inject({}) do |hash, genre|
       hash[genre] = genre.primary_stories.scoped.paginate(page: params[:"#{genre.name}"],
-                                                          per_page: params[:per_page] = 8)
+                                                          per_page: params[:per_page] = @per_page)
       hash
     end
     
