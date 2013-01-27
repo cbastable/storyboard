@@ -35,5 +35,13 @@ $(document).ready(function() {
     }
   });
   
+  $('.collapse').on('shown', function () {
+    $(this).height(300);
+});
+  
+  $('.collapse').on('shown hidden', function(e){
+    $(e.target).siblings('.board-heading').find('.switch-collapse-btn i').toggleClass('icon-circle-arrow-down icon-circle-arrow-up');
+});
+
   
 });

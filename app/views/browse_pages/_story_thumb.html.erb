@@ -1,27 +1,25 @@
 <div class="story-main-content">
   <div class="story-content-wrapper">
-    
-    <div class="story-item-title"><h4><a class="story-title"
+     
+      <h4 class="story-item-title"><a class="story-title"
             title="<%= story.title %>"
             href="<%= story_path(story) %>">
-            <%= truncate(story.title, length: 27) %></a></h4>
-    </div>
-    
-    <div class="story-item-thumb">
+            <%= truncate(story.title, length: 21) %></a></h4>
+      
+        <div class="story-item-thumb">
           <a href="<%= story_path(story) %>">
-             <%= image_tag("rails.png", width: "200px") %>
+             <%= image_tag("rails.png", width: "100%") %>
              <span class="word-count"><%= story.content.length %> words</span>
              <span class="read-later"><%= render 'browse_pages/add_to_read_later', story: story %></span>
           </a>
-    </div>
-    
-    <div class="story-item-description">
-      <h4 class="author-name"><a title="<%= story.user.name %>"
-            href="<%= user_path(story.user) %>">
-          <%= story.user.name %>
-        </a></h4>
-      
+        </div>
+        
       <div class="story-description">
+        
+          <a class="author-name" title="<%= story.user.name %>" href="<%= user_path(story.user) %>">
+          <%= story.user.name %>
+          </a>
+        
         <div class="stats">
           <span class="view-count"><%= story.stats.select("DISTINCT viewer_id").count %> views</span>
           <span class="upvotes"><%= "#" %> upvotes</span>
@@ -29,10 +27,6 @@
         <div class="blurb" ><%= simple_format(story.blurb) %></div>
   
       </div>
-    </div>
-    
+      
   </div>
 </div>
-
-
-

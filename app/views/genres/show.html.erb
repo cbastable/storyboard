@@ -25,7 +25,7 @@
       <div class="board-heading">
         <%= render 'searchable_nav_bar', genre: @genre %>
       </div>
-      <ul class="stories">
+      <ul class="thumbnails stories">
         <%= render 'genre_stories' %>
       </ul>
       <%= link_to(genre_path(page: (params[:page].to_i)+2,

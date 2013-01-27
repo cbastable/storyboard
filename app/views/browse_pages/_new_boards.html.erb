@@ -1,8 +1,9 @@
 <div class="board-heading">
   <%= render 'shared/board_nav_bar', title: "New and popular stories" %>
 </div>
-<ul class="new-stories">
-  <%= render 'new_stories' %>
+<div class="new-stories-collapse collapse in">
+<ul class="thumbnails new-stories">
+  <%= render 'shared/new_stories' %>
 </ul>
 
  <div class="browse-more-stories">
@@ -13,3 +14,4 @@
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
   </div>
+</div> 

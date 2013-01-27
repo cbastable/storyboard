@@ -1,35 +1,37 @@
-<div class="navbar navbar-static-top">
-  <div class="navbar-inner">
-    <div class="container-fluid">
-      <% if defined? genre %>
-        <%= link_to genre.name, genre, class: 'brand' %>
-      <% else %>
-        <a class="brand" href="#"><%= title %></a>
-      <% end %>
-      <nav>
-        <ul class="nav pull-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter 1 <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-            </ul>
-          </li>
-          
-           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter 2 <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-            </ul>
-          </li>
-          
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter 3 <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</div>
+        <div class="navbar navbar-static-top">
+          <div class="navbar-inner">
+            <div class="container-fluid">
+              
+              <% if defined? genre %>
+                <%= link_to genre.name, genre, class: 'brand' %>
+              <% else %>
+                <a class="brand" href="#"><%= title %></a>
+              <% end %>
+              
+            
+              <nav>
+                <ul class="nav pull-right">
+                  <li class="switch-collapse">
+                    <button type="button" class="switch-collapse-btn btn btn-danger pull-right" data-toggle="collapse" data-target="
+                      <% if defined? genre %>
+                        .<%=genre.name%>-collapse
+                      <% else %>
+                        .new-stories-collapse
+                      <% end %>
+                    ">
+                    <i class="icon-circle-arrow-up icon-white"></i>
+                    </button>
+                  </li>
+                
+
+                </ul>
+              </nav>
+              
+            </div>
+          </div>
+        
+        </div>
+      
+
+      
+      

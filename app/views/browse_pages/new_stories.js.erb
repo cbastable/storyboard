@@ -7,7 +7,7 @@
 
 
 <% if @new_stories.all.count>0 -%>
-$('.new-stories').append('<%= escape_javascript(render(partial: 'new_stories')) %>');
+$('.new-stories').append('<%= escape_javascript(render(partial: 'shared/new_stories')) %>');
 $('a.hook2').attr('href', '<%= root_path(new_stories_page: (params[:new_stories_page].to_i || 1)+1,
                                       param_name: 'new_stories_page',
                                       per_page: params[:per_page] || 8) %>').show();

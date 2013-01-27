@@ -1,1 +1,23 @@
-<div id="view-story-form"><%= render 'view_story' %></div>
+<div id="view-story-form">
+
+
+  <a href="#keepReading" role="button" class="btn btn-large btn-primary trigger" data-toggle="modal">Keep reading...</a>
+
+  
+  <div id="keepReading" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+      <h3 id="myModalLabel">Modal header</h3>
+    </div>
+    <div class="modal-body">
+      <p>One fine body</p>
+    </div>
+    <div class="modal-footer">
+      <%= render 'view_story' %>
+    </div>
+  </div>
+
+
+
+
+</div>

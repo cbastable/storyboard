@@ -1,6 +1,7 @@
 <%= form_for(@story.stats.build(story_id: @story.id, viewer_id: current_user.id),
               remote: true) do |f| %>
-  <div><%= f.hidden_field :story_id %></div>
-  <div><%= f.hidden_field :viewer_id %></div>
-  <%= f.submit "View story", class: "btn btn-large btn-primary" %>
+  <%= f.hidden_field :story_id %>
+  <%= f.hidden_field :viewer_id %>
+  <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  <%= f.submit "View story", class: "btn btn-primary" %>
 <% end %>

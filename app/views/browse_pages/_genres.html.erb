@@ -4,11 +4,13 @@
       <div class="board-heading">
         <%= render 'shared/board_nav_bar', genre: genre %>
       </div>
-      <ul id="<%=genre.name%>" class="stories">
+      
+      <div class="<%=genre.name %>-collapse collapse in">
+      <ul id="<%=genre.name%>" class="thumbnails stories">
         <%= render 'genre_stories', genre: genre, primary_stories: primary_stories %>
       </ul>
       <%= render 'genre_link_to_more', genre: genre, primary_stories: primary_stories %>
-
+     </div>
    
     </div>
 </li>

@@ -1,3 +1,7 @@
 <% @stories.each do |story| %>
-  <li id="<%=story.id%>-genre"><%= render 'browse_pages/story_thumb', story: story %></li>
+  <li class="span3">
+    <div class="thumbnail">
+      <%= render 'browse_pages/story_thumb', story: story %>
+    </div>
+  </li>
 <% end %>

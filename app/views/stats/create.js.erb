@@ -2,3 +2,9 @@ $("#view-story-form").html("<%= escape_javascript(render('shared/blank_div')) %>
 $("#story-info").html("<%= escape_javascript(render('shared/floating_story_info')) %>");
 $("#story").html("<%= escape_javascript(render('stories/display_story')) %>");
 $("#render-review").html("<%= escape_javascript(render('stories/review_forms')) %>");
+
+$('#keepReading').modal('hide');
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
+
+
