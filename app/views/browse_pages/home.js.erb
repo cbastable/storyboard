@@ -1,8 +1,6 @@
 <% if @genres.all.count>0 -%>
-alert(<%=@genres.count%>);
 $('.genres').append('<%= escape_javascript(render(partial: 'genres')) %>');
 $('a.hook').attr('href', '<%= root_path(page: (params[:page].to_i || 2)+1, per_page: params[:per_page] || @genres_per_page) %>').show();
 <% else -%>
-alert(<%=@genres.count%>);
 $('a.hook').hide();
 <% end -%>

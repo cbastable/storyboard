@@ -587,12 +587,12 @@ input {
     -webkit-border-radius: 4px;
        -moz-border-radius: 4px;
             border-radius: 4px;
-   ul {
-    margin: 20px 0px 0px 0px;
-    list-style: none;
+   ul.stories {
+    margin-left: auto;
+    margin-right: auto;
+    width: 99%;
     li {
-      margin: 10px 10px 10px 10px;
-      float: left;
+      
     }
   }
     .board-heading {
@@ -621,6 +621,7 @@ input {
 }
 }
 
+/* Genre page */
 
 #genre-page {
   min-width: 960px;
