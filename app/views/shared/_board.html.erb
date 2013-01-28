@@ -1,20 +1,14 @@
-<% @user.boards.select("DISTINCT name").each do |board| %>
-<hr class="storyboard-seperator">
-
-<div class="row">
-  <div class="span2 offset4">
-    <div class="storyboard-container">
-      <div class="span8"><section><%= board.name %></section></div>
-      <div class="span8">
-      <ul class="stories">
-        <% @user.boards.each do |b| %>
-          <% if b.name == board.name && !b.library_story.nil? %>
-           <li><%= link_to b.library_story.title, b.library_story %></li>
-         <% end %>
-        <% end %>
-      </ul>
-      </div>
-    </div>
+<div id="board-show">
+  <div class="board-heading">
+    <%= render 'genres/searchable_nav_bar', board: board %>
   </div>
+  <ul class="thumbnails stories">
+    <%= render 'board_stories', board: board %>
+  </ul>
+  <%= link_to(user_path(page: (params[:page].to_i)+2,
+                                  search: params[:search],
+                                  per_page: params[:per_page] || @per_page),
+                                  class: "hook btn btn-primary", remote: true) do %>
+                                  <i class="icon-circle-arrow-down icon-white"></i> More...
+                                  <% end %>
 </div>
-<% end %>

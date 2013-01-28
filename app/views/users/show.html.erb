@@ -1,28 +1,36 @@
 <% provide(:title, @user.name) %>
 
 <div class="row">
-  <aside class="span3">
-  <%= render 'shared/floating_user_info' %>
-  </aside>
-<% if @user.stories.any? %>
-  <div class="span2 offset1">
-    <div class="storyboard-container">
-      <div class="span8"><section><%= "Published" %></section></div>
-      <div class="span8">
-        <% if current_user?(@user) %>
-          <%= link_to "Publish a story", write_path, class: "btn btn-block btn-primary" %>
-        <% end %>
-        <% unless @user.stories.nil? %>
-        <ul class="stories">
-          <% @user.stories.each do |s| %>
-          <li><%= link_to s.title, s %></li>
-          <% end %>
-        </ul>
-        <% end %>
+    
+  <div class="user-page">
+    
+    
+      <div class="user-left">
+        <%= render 'shared/floating_user_info' %>
       </div>
-    </div>
-  </div>
-<% end %>    
-</div>
+    
+    
+      
+        <div class="user-center">
+          <div class="tabbable tabs-left">
+          
+            <ul class="nav nav-tabs">
+              <% @user.boards.select("DISTINCT name").each do |board| %>
+              <li><a href="#<%=board.name.parameterize%>" data-toggle="tab"><%=board.name%></a></li>
+              <% end %>
+            </ul>
+            <div class="tab-content">
+              <% @user.boards.select("DISTINCT name").each do |board| %>
+              <div class="tab-pane" id="<%=board.name.parameterize%>">
+                <%= render 'shared/board', board: board %>
+              </div>
+              <% end %>
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    
 
-<%= render 'shared/board' %>
+</div>

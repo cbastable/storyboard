@@ -3,20 +3,29 @@
     <div class="container-fluid">
       <% if defined? genre %>
         <%= link_to genre.name, genre, class: 'brand' %>
+      <% elsif defined? board%>
+        <a class="brand" href="#"><%= board.name %></a>
       <% else %>
         <a class="brand" href="#"><%= title %></a>
       <% end %>
       <nav>
         <ul class="nav pull-right">
           <li class="nav-search">
-            
-            <%= form_tag genre_path(genre), class: "form-search", method: :get do %>
-              <div class="input-append">
-              <%= text_field_tag :search, params[:search], class: "span2 search-query" %>
-              <%= button_tag "Search", name: nil, class: "btn" %>
-              </div>
+            <% if defined? genre %>
+              <%= form_tag genre_path(genre), class: "form-search", method: :get do %>
+                <div class="input-append">
+                <%= text_field_tag :search, params[:search], class: "span2 search-query" %>
+                <%= button_tag "Search", name: nil, class: "btn" %>
+                </div>
+              <% end %>
+            <% else %>
+              <%= form_tag user_path(@user), class: "form-search", method: :get do %>
+                <div class="input-append">
+                <%= text_field_tag :search, params[:search], class: "span2 search-query" %>
+                <%= button_tag "Search", name: nil, class: "btn" %>
+                </div>
+              <% end %>
             <% end %>
-                        
             
           </li>
           
