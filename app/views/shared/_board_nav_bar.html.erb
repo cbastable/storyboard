@@ -5,7 +5,8 @@
               <% if defined? genre %>
                 <%= link_to genre.name, genre, class: 'brand' %>
               <% else %>
-                <a class="brand" href="#"><%= title %></a>
+                
+                <%= link_to "New and popular", stories_path, class: 'brand'%>
               <% end %>
               
             

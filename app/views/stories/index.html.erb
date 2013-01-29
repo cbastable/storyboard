@@ -1,10 +1,41 @@
-<% provide(:title, 'Storyboard / Stories') %>
-<h1>All stories</h1>
+<% provide(:title, "Stories") %>
 
-<%= will_paginate %>
-
-<ul class="stories">
-  <%= @stories.each do |story| %>
-     <li id="<%=story.id%>-genre"><%= render 'browse_pages/story_thumb', story: story %></li>
-  <% end %>
-</ul>
+<div class="row">
+<div id="stories-page">
+  
+  <div id="stories-left">
+    <div id="publish">
+      <%= link_to(write_path, class: "btn btn-block btn-primary") do %>
+      <i class="icon-pencil icon-white"></i> Publish a story
+      <% end %>
+    </div>
+    
+    <div id="user-info">
+      <%= render 'shared/floating_user_info' %>
+    </div>
+    <div id="story-publishers">
+      <h6>Top publishers</h6>
+      <%= render 'story_publishers' %>
+    </div>
+  </div>
+  
+  
+  <div id="stories-center">
+    <div id="stories-show">
+      <div class="board-heading">
+        <%= render 'genres/searchable_nav_bar', title: "Stories" %>
+      </div>
+      <ul class="thumbnails stories">
+        <%= render 'all_stories' %>
+      </ul>
+      <%= link_to(stories_path(page: (params[:page].to_i)+2,
+                                      search: params[:search],
+                                      per_page: params[:per_page] || @per_page),
+                                      class: "hook btn btn-primary", remote: true) do %>
+                                      <i class="icon-circle-arrow-down icon-white"></i> More...
+                                      <% end %>
+    </div>
+  </div>
+  
+</div>
+</div>

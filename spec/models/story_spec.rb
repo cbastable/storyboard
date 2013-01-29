@@ -12,6 +12,7 @@
 #  primary_genre_id   :integer
 #  secondary_genre_id :integer
 #  tertiary_genre_id  :integer
+#  upvotes            :integer
 #
 
 require 'spec_helper'

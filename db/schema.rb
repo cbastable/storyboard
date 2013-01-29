@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130122015858) do
+ActiveRecord::Schema.define(:version => 20130129215330) do
 
   create_table "boards", :force => true do |t|
     t.integer  "user_id"
@@ -60,15 +60,13 @@ ActiveRecord::Schema.define(:version => 20130122015858) do
   create_table "stats", :force => true do |t|
     t.integer  "viewer_id"
     t.boolean  "viewed",     :default => false
-    t.decimal  "rating"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.integer  "story_id"
+    t.boolean  "rated",      :default => false
   end
 
-  add_index "stats", ["rating"], :name => "index_stats_on_rating"
   add_index "stats", ["viewed"], :name => "index_stats_on_viewed"
-  add_index "stats", ["viewer_id", "viewed", "rating"], :name => "index_stats_on_viewer_id_and_viewed_and_rating", :unique => true
   add_index "stats", ["viewer_id"], :name => "index_stats_on_viewer_id"
 
   create_table "stories", :force => true do |t|
@@ -81,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20130122015858) do
     t.integer  "primary_genre_id"
     t.integer  "secondary_genre_id"
     t.integer  "tertiary_genre_id"
+    t.integer  "upvotes"
   end
 
   add_index "stories", ["created_at"], :name => "index_stories_on_created_at"
@@ -93,11 +92,13 @@ ActiveRecord::Schema.define(:version => 20130122015858) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
     t.string   "password_digest"
     t.string   "remember_token"
-    t.boolean  "admin",           :default => false
+    t.boolean  "admin",             :default => false
+    t.integer  "community_points"
+    t.integer  "storyboard_points"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

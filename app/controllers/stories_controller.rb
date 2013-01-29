@@ -9,7 +9,18 @@ def new
 end
 
 def index
-  @stories = Story.paginate(page: params[:page])
+  @user = current_user
+  @per_page = 16
+  
+  @stories = Story.search( params[:search], page: params[:page], per_page: @per_page, conditions: {},
+                                            order: :created_at, sort_mode: :desc)
+  
+  respond_to do |format|
+    format.html
+    format.js
+  end
+  
+  
 end
 
 def create
@@ -68,9 +79,11 @@ def comments
 end
 
 def upvote
-    @stat = Stat.find(params[:id])
-    Stat.increment_counter(:rating, @stat.id)
-    @story = @stat.story
+    @story = Story.find(params[:id])
+    Story.increment_counter(:upvotes, @story.id)
+    @stat = @story.stats.find_by_viewer_id(current_user.id)
+    @stat.rated = true
+    @stat.save
     respond_to do |format|
       format.html {redirect_to story_path(@story)}
       format.js
@@ -78,20 +91,11 @@ def upvote
 end
 
 def downvote
-    @stat = Stat.find(params[:id])
-    Stat.decrement_counter(:rating, @stat.id)
-    @story = @stat.story
-    respond_to do |format|
-      format.html {redirect_to story_path(@story)}
-      format.js
-    end
-end
-
-def no_vote
-    @stat = Stat.find(params[:id])
-    @stat.rating = nil
-    @stat.save!
-    @story = @stat.story
+    @story = Story.find(params[:id])
+    Story.decrement_counter(:upvotes, @story.id)
+    @stat = @story.stats.find_by_viewer_id(current_user.id)
+    @stat.rated = true
+    @stat.save
     respond_to do |format|
       format.html {redirect_to story_path(@story)}
       format.js

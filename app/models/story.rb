@@ -12,10 +12,11 @@
 #  primary_genre_id   :integer
 #  secondary_genre_id :integer
 #  tertiary_genre_id  :integer
+#  upvotes            :integer
 #
 
 class Story < ActiveRecord::Base
-  attr_accessible :title, :blurb, :content, :primary_genre_id, :secondary_genre_id, :tertiary_genre_id
+  attr_accessible :title, :blurb, :content, :primary_genre_id, :secondary_genre_id, :tertiary_genre_id, :upvotes
   belongs_to :user
   belongs_to :primary_genre,    class_name: "Genre"
   belongs_to :secondary_genre,  class_name: "Genre"
@@ -47,7 +48,7 @@ class Story < ActiveRecord::Base
     
     set_property field_weights: {
       title: 30,
-      blurb: 10,
+      blurb: 15,
       content: 1,
       author: 30,
       genre_1: 10, 

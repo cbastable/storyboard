@@ -5,10 +5,10 @@
 #  id         :integer          not null, primary key
 #  viewer_id  :integer
 #  viewed     :boolean          default(FALSE)
-#  rating     :decimal(, )
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  story_id   :integer
+#  rated      :boolean          default(FALSE)
 #
 
 require 'spec_helper'

@@ -1,9 +1,18 @@
 class GenresController < ApplicationController
-  before_filter :admin_user, only: [:create, :destroy]
+  before_filter :admin_user, only: [:new, :index, :create, :destroy]
   
+  def new
+    @genre = Genre.new
+  end
 
   def create
-    @genre = Genre.new(params[:genre])
+    @genre = Genre.create(params[:genre])
+    if @genre.save
+      flash[:success] = "Genre added successfully"
+      redirect_to genres_path
+    else
+      render 'new'
+    end
   end
 
   def destroy

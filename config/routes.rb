@@ -30,7 +30,7 @@ Storyboard::Application.routes.draw do
   
 
   match '/write',     to: 'stories#new' 
-  #match '/:id',       to: 'stories#show'
+  match '/:id',       to: 'stories#show'
   #match '/:id/edit',  to: 'stories#edit'
 
 end

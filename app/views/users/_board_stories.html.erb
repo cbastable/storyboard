@@ -1,7 +1,9 @@
 <% Array(@user.boards.find_all_by_name(board.name)).each do |board| %>
   <li class="span3">
     <div class="thumbnail">
-      <%= render 'browse_pages/story_thumb', story: board.library_story %>
+      <% if !board.story_id.nil? %>
+      <%=  render 'browse_pages/story_thumb', story: board.library_story %>
+      <% end %>
     </div>
   </li>
 <% end %>

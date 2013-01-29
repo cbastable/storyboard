@@ -356,6 +356,87 @@ input {
 
 /* Stories */
 
+
+#stories-page {
+  min-width: 960px;
+
+
+#stories-left {
+  //display: inline;
+  float: left;
+  margin: 0px 20px 0px 20px;
+  width: 15% !important;
+}
+
+#stories-center {
+  float: right;
+  display: inline-block;
+  width: 80% !important;
+}
+}
+
+#stories-show{
+  
+    height: 90% !important;
+  //  width: 695px !important;
+    overflow-y: scroll;
+   // float: left;
+    margin: 20px 0px 20px 0px;
+    padding: 0px 0px 0px 0px;
+    border: 1px solid $grayLighter;
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+   ul {
+    margin: 20px 0px 0px 0px;
+    list-style: none;
+    li {
+      margin: 10px 10px 10px 10px;
+      float: left;
+    }
+  }
+    .board-heading {
+      width: 100%;
+      display: inline-block;
+      position: relative;
+      height: 40px;
+      .brand {
+        position: absolute;
+        left: 5px;
+        top: 5px;
+        margin: 0px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+      }
+      .navbar-inner {
+        
+        .navbar-form, .input-append, .btn {margin-top:0;}
+        
+        ul {
+         margin: 0px 0px 0px 0px;
+         padding: 0px 0px 0px 0px;
+          li {
+           margin: 0px 0px 0px 0px;
+           padding: 0px 0px 0px 0px  
+        }
+       } 
+      }
+  }
+}
+
+#story-publishers {
+  ul {
+    display: inline;
+    list-style: none;
+  li {
+    margin: 30px 0px 30px 0px;
+    padding: 5px 0px 0px 0px;
+    border-top: 1px solid $grayLighter;
+    }
+  }
+
+}
+/////////////////////////////////////////////////////////////////////////////////////
+
 #genre-tags {   
     
     //display: inline-block;

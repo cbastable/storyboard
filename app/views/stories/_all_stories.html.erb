@@ -1,0 +1,7 @@
+<% @stories.each do |story| %>
+  <li class="span3">
+    <div class="thumbnail">
+      <%= render 'browse_pages/story_thumb', story: story %>
+    </div>
+  </li>
+<% end %>

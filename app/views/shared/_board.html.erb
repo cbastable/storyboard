@@ -3,7 +3,7 @@
     <%= render 'genres/searchable_nav_bar', board: board %>
   </div>
   <ul class="thumbnails stories">
-    <%= render 'board_stories', board: board %>
+    <%= render 'users/board_stories', board: board %>
   </ul>
   <%= link_to(user_path(page: (params[:page].to_i)+2,
                                   search: params[:search],

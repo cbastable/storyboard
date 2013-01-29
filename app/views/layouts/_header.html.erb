@@ -4,6 +4,14 @@
       <%= link_to "StoryBoard", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
+          <li class="nav-search">
+            <%= form_tag stories_path, class: "form-search", method: :get do %>
+              <div class="input-append">
+              <%= text_field_tag :search, params[:search], class: "span2 search-query" %>
+              <%= button_tag "Search", name: nil, class: "btn" %>
+              </div>
+            <% end %>
+          </li>
           <li><%= link_to "Home", root_path %></li>
           <% if signed_in? %>
             <li><%= link_to(current_user) do %>

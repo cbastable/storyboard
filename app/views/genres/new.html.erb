@@ -1,0 +1,13 @@
+<% provide(:title, "New genre") %>  
+  
+  <div class="row">
+    <h1>Add new genre</h1>
+
+  
+  <div class="span6">
+    <%= form_for(@genre) do |f| %>
+      <%= render 'genre_fields', f: f %>
+      <%= f.submit "Add genre", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

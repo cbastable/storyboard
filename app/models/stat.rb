@@ -5,14 +5,14 @@
 #  id         :integer          not null, primary key
 #  viewer_id  :integer
 #  viewed     :boolean          default(FALSE)
-#  rating     :decimal(, )
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  story_id   :integer
+#  rated      :boolean          default(FALSE)
 #
 
 class Stat < ActiveRecord::Base
-  attr_accessible :rating, :viewed, :viewer_id, :story_id
+  attr_accessible :rating, :viewed, :viewer_id, :story_id, :rated
   belongs_to :story
   belongs_to :viewer, class_name: "User"
   
