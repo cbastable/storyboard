@@ -82,6 +82,14 @@ class UsersController < ApplicationController
     @board_stories = @user.library_stories.select("DISTINCT name").paginate(page: params[:page])
     render 'show_library'
   end
+  
+  def storyboard_points
+    @user = current_user
+  end
+  
+  def community_points
+    @user = current_user
+  end
 
   private
   

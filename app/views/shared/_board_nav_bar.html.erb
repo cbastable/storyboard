@@ -1,38 +1,34 @@
-        <div class="navbar navbar-static-top">
-          <div class="navbar-inner">
-            <div class="container-fluid">
-              
-              <% if defined? genre %>
-                <%= link_to genre.name, genre, class: 'brand' %>
-              <% else %>
-                
-                <%= link_to "New and popular", stories_path, class: 'brand'%>
-              <% end %>
-              
-            
-              <nav>
-                <ul class="nav pull-right">
-                  <li class="switch-collapse">
-                    <button type="button" class="switch-collapse-btn btn btn-danger pull-right" data-toggle="collapse" data-target="
-                      <% if defined? genre %>
-                        .<%=genre.name%>-collapse
-                      <% else %>
-                        .new-stories-collapse
-                      <% end %>
-                    ">
-                    <i class="icon-circle-arrow-up icon-white"></i>
-                    </button>
-                  </li>
-                
-
-                </ul>
-              </nav>
-              
-            </div>
-          </div>
+<div class="navbar navbar-static-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      
+      <% if defined? genre %>
+        <%= link_to genre.name, genre, class: 'brand' %>
+      <% else %>
         
-        </div>
+        <%= link_to "New and popular", stories_path, class: 'brand'%>
+      <% end %>
       
+    
+      <nav>
+        <ul class="nav pull-right">
+          <li class="switch-collapse">
+            <button type="button" class="switch-collapse-btn btn btn-danger pull-right" data-toggle="collapse" data-target="
+              <% if defined? genre %>
+                .<%=genre.name%>-collapse
+              <% else %>
+                .new-stories-collapse
+              <% end %>
+            ">
+            <i class="icon-circle-arrow-up icon-white"></i>
+            </button>
+          </li>
+        
 
+        </ul>
+      </nav>
       
-      
+    </div>
+  </div>
+
+</div>

@@ -18,17 +18,23 @@ $indigoMedium: #422A5B;
 $indigoDark: #3D2357;
 $indigoDarkDark: #2E1B41;
 
+$purpleLight: #8266b6;
+$purpleDark: #533787;
+
 $purplePalette1: #442F61;
 $purplePalette2: #3F2F55;
 $purplePalette3: #321D50;
 $purplePalette4: #654B88;
 $purplePalette5: #695288;
 
-$tealPalette1: #2C475C;
-$tealPalette2: #2C4050;
-$tealPalette3: #1B374C;
-$tealPalette4: #486A85;
-$tealPalette5: #4F6D85;
+
+$maroonPalette1: #39141B;
+$maroonPalette2: #4F1C26;
+$maroonPalette3: #62222F;
+$maroonPalette4: #842E40;
+$maroonPalette5: #7A152B;
+
+
 
 
 /* universal */
@@ -44,7 +50,8 @@ html {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 50px;
+  background: url('paper_fibers.png');
 }
 @media (max-width: 620px) {
   body {
@@ -109,6 +116,33 @@ p {
   line-height: 1.7em;
 }
 
+/* User interface */
+
+.btn-primary {
+  background-color: $purpleMatteLight !important;
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#695288", endColorstr="#442F61");
+  background-image: -khtml-gradient(linear, left top, left bottom, from($purplePalette5), to($purplePalette1));
+  background-image: -moz-linear-gradient(top, $purplePalette5, $purplePalette1);
+  background-image: -ms-linear-gradient(top, $purplePalette5, $purplePalette1);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $purplePalette5), color-stop(100%, $purplePalette1));
+  background-image: -webkit-linear-gradient(top, $purplePalette5, $purplePalette1);
+  background-image: -o-linear-gradient(top, $purplePalette5, $purplePalette1);
+  background-image: linear-gradient($purplePalette5, $purplePalette1);
+  border-color: $purplePalette3 $purplePalette3 hsl(265, 46%, 25%);
+  color: white !important;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.26);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: $purplePalette4;
+  &:hover {
+    color: $indigoBright;
+  }
+  
+}
+
 
 /* header */
 
@@ -117,15 +151,39 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
+  color: $purpleMatteLight;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
   line-height: 1;
   &:hover {
-    color: white;
+    color: $indigoBright;
     text-decoration: none;
+  }
+}
+
+.nav-search {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  .form-inline {
+    margin: 5px 0px 5px 0px;
+    .btn {
+      margin: 0px 0px 0px 0px; 
+    }
+  }
+  .form-search {
+    margin: 5px 0px 5px 0px;
+  }
+
+}
+
+.nav { 
+  li.header-points {
+    a {
+      display: inline-block;
+    }
+    display: inline-block;
   }
 }
 
@@ -191,7 +249,9 @@ aside {
 }
 
 .stats {
-   overflow: auto; 
+  margin: 5px 0px 0px 0px;
+  overflow: hidden;
+  display: inline-block;
   a {
     float: left;
     padding: 5px 10px;
@@ -356,6 +416,10 @@ input {
 
 /* Stories */
 
+.thumbnail {
+  width: 220px !important;
+  height: 250px !important;
+}
 
 #stories-page {
   min-width: 960px;
@@ -376,7 +440,7 @@ input {
 }
 
 #stories-show{
-  
+    background: white;
     height: 90% !important;
   //  width: 695px !important;
     overflow-y: scroll;
@@ -424,6 +488,7 @@ input {
 }
 
 #story-publishers {
+  
   ul {
     display: inline;
     list-style: none;
@@ -435,10 +500,9 @@ input {
   }
 
 }
-/////////////////////////////////////////////////////////////////////////////////////
+
 
 #genre-tags {   
-    
     //display: inline-block;
     text-align: center;
     padding: 5px 20px 5px 0px;
@@ -582,7 +646,10 @@ input {
 }
 
 
-#new-and-popular{  
+#new-and-popular {
+  
+  background: white;
+  
   margin: 20px 0px 20px 0px;
   padding: 0px 0px 0px 0px;
   border: 1px solid $grayLighter;
@@ -640,6 +707,7 @@ input {
 }
 
 #genre-boards {
+
   ul {
     list-style: none;
     margin: 0px 0px 0px 0px;
@@ -651,6 +719,8 @@ input {
 
 .genre {
 
+  background: white;
+  
   .collapse.in {
     height: 300px;
   }
@@ -723,6 +793,8 @@ input {
 }
 
 #genre-show{
+  
+  background: white;
   
     height: 90% !important;
   //  width: 695px !important;

@@ -1,27 +1,15 @@
 <% @user ||= current_user %>
 <div class="stats">
-  <div class="span3">
     <a href="<%= publishers_user_path(@user) %>">
       <strong id="publishers" class="stat">
         <%= @user.publishers.count %>
       </strong>
-      publishers
+      pubs
     </a>
     <a href="<%= readers_user_path(@user) %>">
       <strong id="readers" class="stat">
         <%= @user.readers.count %>
       </strong>
-      subscribers
+      subs
     </a>
-  </div>
-</div>
-<div class="boards">
-  <div class="span2">
-    <a href="<%= user_path(@user) %>">
-      <strong id="library" class="stat">
-        <%= @user.boards.count('name', distinct: true) %>
-      </strong>
-      storyboards
-    </a>
-  </div>
 </div>

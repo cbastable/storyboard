@@ -2,7 +2,7 @@ Storyboard::Application.routes.draw do
   
   resources :users do
     member do
-      get :publishers, :readers, :library_stories, :boards
+      get :publishers, :readers, :library_stories, :boards, :storyboard_points, :community_points
     end
   end
   
