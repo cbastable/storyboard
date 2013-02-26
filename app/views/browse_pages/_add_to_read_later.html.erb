@@ -4,9 +4,9 @@
               remote: true) do |f| %>
               <%= f.hidden_field :name, value: "Read later" %>
               <%= f.hidden_field :story_id, value: story.id %>
-              <%= f.submit "", class: "icon-book" %>
+              <%= f.submit "Read later", class: "btn btn-small"%>
     <% end %>
-  </div>                
+  </div>
 <% else %>
  <%= render 'browse_pages/story_added_to_read_later' %>
 <% end %>

@@ -8,7 +8,7 @@
       
         <div class="story-item-thumb">
           <a href="<%= story_path(story) %>">
-             <%= image_tag("rails.png", width: "100%") %>
+             <i class="icon-book icon-4x"></i>
              <span class="word-count"><%= story.content.length %> words</span>
              <span class="read-later"><%= render 'browse_pages/add_to_read_later', story: story %></span>
           </a>

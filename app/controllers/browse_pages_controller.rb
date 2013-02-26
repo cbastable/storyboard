@@ -41,7 +41,7 @@ class BrowsePagesController < ApplicationController
     
   
     
-  end       #???
+  end
   end
   
   
