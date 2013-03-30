@@ -67,7 +67,7 @@ class User < ActiveRecord::Base
   def remove_from_storyboard!(board)
     boards.where(name: board.name).where(story_id: board.story_id).destroy
   end
-  
+
   
   private
   

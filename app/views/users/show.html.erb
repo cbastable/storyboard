@@ -22,7 +22,7 @@
             <div class="tab-content">
               <% @user.boards.select("DISTINCT name").each do |board| %>
               <div class="tab-pane" id="<%=board.name.parameterize%>">
-                <%= render 'shared/board', board: board %>
+                <%= render 'board', board: board %>
               </div>
               <% end %>
             </div>

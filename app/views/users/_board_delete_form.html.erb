@@ -1,0 +1,6 @@
+<%= form_for(@user.boards.where(name: board.name).first, method: :delete,
+              remote: true) do |f| %>
+  <%= f.hidden_field :name, value: board.name %>
+  <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  <%= f.submit "Delete", class: "btn btn-primary" %>
+<% end %>

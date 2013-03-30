@@ -1,0 +1,85 @@
+<div class="navbar navbar-static-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      
+        <a class="brand" href="#"><%= board.name %></a>
+
+      <nav>
+        <ul class="nav pull-right">
+          <li class="nav-search">
+            <% if defined? genre %>
+              <%= form_tag genre_path(genre), class: "form-search", method: :get do %>
+                <div class="input-append">
+                <%= text_field_tag :search, params[:search], class: "span2 search-query" %>
+                <%= button_tag "Search", name: nil, class: "btn" %>
+                </div>
+              <% end %>
+            <% elsif defined? title %>
+              <%= form_tag stories_path, class: "form-search", method: :get do %>
+                <div class="input-append">
+                <%= text_field_tag :search, params[:search], class: "span2 search-query" %>
+                <%= button_tag "Search", name: nil, class: "btn" %>
+                </div>
+              <% end %>
+            <% else %>
+              <%= form_tag user_path(@user), class: "form-search", method: :get do %>
+                <div class="input-append">
+                <%= text_field_tag :search, params[:search], class: "span2 search-query" %>
+                <%= button_tag "Search", name: nil, class: "btn" %>
+                </div>
+              <% end %>
+            <% end %>
+            
+          </li>
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter 1 <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+            </ul>
+          </li>
+          
+           <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter 2 <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+            </ul>
+          </li>
+          
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Filter 3 <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+            </ul>
+          </li>
+          
+          <% unless board.name == "Read later" || board.name == "Published" || board.name == "Read"%>
+          <li class="remove-board">
+            <button href="#<%=board.name.parameterize%>-remove" type="button" class="btn btn-danger" data-toggle="modal">
+            <i class="icon-remove-sign icon-white"></i>
+            </button>
+            
+          </li>          
+        <% end %>
+          
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+<div id="<%=board.name.parameterize%>-remove" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+    <h3 id="myModalLabel">Delete <%=board.name%>?</h3>
+  </div>
+  <div class="modal-body">
+    <p>Permanently delete <%=board.name%>? You will lose all <%= @user.boards.where(name: board.name).count %> stories
+    saved in this board.</p>
+
+  </div>
+  <div class="modal-footer">
+    <%= render 'board_delete_form', board: board %>
+  </div>
+</div>

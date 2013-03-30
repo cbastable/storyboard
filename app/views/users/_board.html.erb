@@ -1,0 +1,14 @@
+<div id="board-show">
+  <div class="board-heading">
+    <%= render 'users/board_searchable_nav_bar', board: board %>
+  </div>
+  <ul class="thumbnails stories">
+    <%= render 'users/board_stories', board: board %>
+  </ul>
+  <%= link_to(user_path(page: (params[:page].to_i)+2,
+                                  search: params[:search],
+                                  per_page: params[:per_page] || @per_page),
+                                  class: "hook btn btn-primary", remote: true) do %>
+                                  <i class="icon-circle-arrow-down icon-white"></i> More...
+                                  <% end %>
+</div>

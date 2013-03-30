@@ -69,7 +69,7 @@ end
 
 def destroy
   current_user.stories.find_by_id(params[:id]).destroy
-  flash[:sucess] = "Story destroyed"
+  flash[:sucess] = "Story deleted"
   redirect_to @current_user
 end
 

@@ -21,11 +21,15 @@ class BoardsController < ApplicationController
   end
 
   def destroy
-    @board = Board.find(params[:id])
-    current_user.remove_from_storyboard!(@board)
-    respond_to do |format|
-      format.html {redirect_to current_user_user_path}
-      format.js
+    if params[:commit] == 'Delete'
+      current_user.boards.where(name: current_user.boards.find_by_id(params[:id]).name).destroy_all
+    else
+      @board = Board.find_by_id(params[:id])
+      current_user.remove_from_storyboard!(@board)
+      respond_to do |format|
+        format.html {redirect_to current_user_user_path}
+        format.js
+      end      
     end
   end
 
