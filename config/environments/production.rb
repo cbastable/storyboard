@@ -64,4 +64,8 @@ Storyboard::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  
+  ENV['SECRET_KEY'] = "sk_test_2Kis4S7pZOrdRqkmaSd0YsFe"
+  ENV['PUBLISHABLE_KEY'] = "pk_test_7q40prukWEc0sSfm4TVva1K4"  
+  
 end

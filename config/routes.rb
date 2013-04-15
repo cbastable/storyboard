@@ -18,6 +18,7 @@ Storyboard::Application.routes.draw do
   resources :comments,        only: [:create, :destroy]
   resources :boards,          only: [:create, :destroy]
   resources :stats,           only: [:create]
+  resources :charges,         only: [:create]
   
   root to: 'browse_pages#home'
   

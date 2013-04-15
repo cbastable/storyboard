@@ -34,4 +34,8 @@ Storyboard::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  ENV['SECRET_KEY'] = "sk_test_2Kis4S7pZOrdRqkmaSd0YsFe"
+  ENV['PUBLISHABLE_KEY'] = "pk_test_7q40prukWEc0sSfm4TVva1K4"
+  
 end

@@ -34,4 +34,8 @@ Storyboard::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  ENV['SECRET_KEY'] = "sk_test_2Kis4S7pZOrdRqkmaSd0YsFe"
+  ENV['PUBLISHABLE_KEY'] = "pk_test_7q40prukWEc0sSfm4TVva1K4"
+  
 end
