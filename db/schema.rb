@@ -97,8 +97,8 @@ ActiveRecord::Schema.define(:version => 20130129215330) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",             :default => false
-    t.integer  "community_points"
-    t.integer  "storyboard_points"
+    t.integer  "community_points",  :default => 0
+    t.integer  "storyboard_points", :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

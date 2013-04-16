@@ -68,6 +68,10 @@ class User < ActiveRecord::Base
     boards.where(name: board.name).where(story_id: board.story_id).destroy
   end
 
+  def add_storyboard_points!(user, amount)
+    User.find_by_id(user.id).update_attribute(:storyboard_points, amount)
+  end
+
   
   private
   
