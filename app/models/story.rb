@@ -13,6 +13,7 @@
 #  secondary_genre_id :integer
 #  tertiary_genre_id  :integer
 #  upvotes            :integer
+#  price              :integer          default(0)
 #
 
 class Story < ActiveRecord::Base
@@ -74,6 +75,9 @@ class Story < ActiveRecord::Base
     story.content.split(" ").first(100).join(" ") + "..."
   end
   
+  def current_price(story)
+    story.price
+  end
   
   default_scope order: 'stories.created_at DESC'
   

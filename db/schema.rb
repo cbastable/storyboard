@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130129215330) do
+ActiveRecord::Schema.define(:version => 20130418025059) do
 
   create_table "boards", :force => true do |t|
     t.integer  "user_id"
@@ -74,12 +74,13 @@ ActiveRecord::Schema.define(:version => 20130129215330) do
     t.string   "title"
     t.string   "blurb"
     t.text     "content"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "primary_genre_id"
     t.integer  "secondary_genre_id"
     t.integer  "tertiary_genre_id"
     t.integer  "upvotes"
+    t.integer  "price",              :default => 0
   end
 
   add_index "stories", ["created_at"], :name => "index_stories_on_created_at"

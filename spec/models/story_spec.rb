@@ -13,6 +13,7 @@
 #  secondary_genre_id :integer
 #  tertiary_genre_id  :integer
 #  upvotes            :integer
+#  price              :integer          default(0)
 #
 
 require 'spec_helper'

@@ -18,7 +18,7 @@ def create
     currency:     'usd'
   )
   
-  @user.add_storyboard_points!(@user, @balance + @amount.to_i)
+  @user.update_storyboard_points!(@user, @balance + @amount.to_i)
   flash[:success] = "Please sign in again to access your updated balance"
   redirect_to new_session_url
 

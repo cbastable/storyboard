@@ -2,6 +2,13 @@
               remote: true) do |f| %>
   <%= f.hidden_field :story_id %>
   <%= f.hidden_field :viewer_id %>
-  <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-  <%= f.submit "View story", class: "btn btn-primary" %>
+  <%= f.submit "Pay with Storyboard Points", class: "btn btn-primary" %>
+<% end %>
+
+
+<%= form_for(@story.stats.build(story_id: @story.id, viewer_id: current_user.id),
+              remote: true) do |f| %>
+  <%= f.hidden_field :story_id %>
+  <%= f.hidden_field :viewer_id %>
+  <%= f.submit "View story for free", class: "btn btn-primary" %>
 <% end %>

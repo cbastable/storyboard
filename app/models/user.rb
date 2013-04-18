@@ -10,8 +10,8 @@
 #  password_digest   :string(255)
 #  remember_token    :string(255)
 #  admin             :boolean          default(FALSE)
-#  community_points  :integer
-#  storyboard_points :integer
+#  community_points  :integer          default(0)
+#  storyboard_points :integer          default(0)
 #
 
 class User < ActiveRecord::Base
@@ -68,7 +68,7 @@ class User < ActiveRecord::Base
     boards.where(name: board.name).where(story_id: board.story_id).destroy
   end
 
-  def add_storyboard_points!(user, amount)
+  def update_storyboard_points!(user, amount)
     User.find_by_id(user.id).update_attribute(:storyboard_points, amount)
   end
 

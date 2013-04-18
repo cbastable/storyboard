@@ -10,8 +10,8 @@
 #  password_digest   :string(255)
 #  remember_token    :string(255)
 #  admin             :boolean          default(FALSE)
-#  community_points  :integer
-#  storyboard_points :integer
+#  community_points  :integer          default(0)
+#  storyboard_points :integer          default(0)
 #
 
 require 'spec_helper'
