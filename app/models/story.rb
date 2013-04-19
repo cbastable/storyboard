@@ -46,6 +46,7 @@ class Story < ActiveRecord::Base
     indexes primary_genre(:name), as: :genre_1,   sortable: true
     indexes secondary_genre(:name), as: :genre_2, sortable: true
     indexes tertiary_genre(:name), as: :genre_3, sortable: true
+    indexes :price
     
     set_property field_weights: {
       title: 30,
@@ -54,7 +55,8 @@ class Story < ActiveRecord::Base
       author: 30,
       genre_1: 10, 
       genre_2: 7, 
-      genre_3: 5
+      genre_3: 5,
+      price: 1
     }  
       has user_id, created_at, updated_at
   end
@@ -75,9 +77,6 @@ class Story < ActiveRecord::Base
     story.content.split(" ").first(100).join(" ") + "..."
   end
   
-  def current_price(story)
-    story.price
-  end
   
   default_scope order: 'stories.created_at DESC'
   

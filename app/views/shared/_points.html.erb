@@ -1,16 +1,8 @@
 <a href='' class="dropdown-toggle" data-toggle="dropdown">
   <i class="icon-star"></i>
-  <% if current_user.storyboard_points.nil?%>
-    <%="0"%>
-  <%else%>
     <%= current_user.storyboard_points %>
-  <%end%>
   <i class="icon-star-empty"></i>
-  <% if current_user.community_points.nil?%>
-    <%="0"%>
-  <%else%>
     <%= current_user.community_points %>
-  <%end%>
   <b class="caret"></b>
 </a>
 <ul class="dropdown-menu">

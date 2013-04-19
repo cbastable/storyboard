@@ -3,13 +3,13 @@
   <aside class="span3">
   <div id="story-info"><%= render 'shared/floating_story_info' %></div>
   <div class="storyboard-seperator"></div>
-  <div id="author-info"><%= render 'shared/floating_user_info' %></div>
+  <div id="author-info"><%= render 'shared/floating_author_info' %></div>
   </aside>
   
 <div class="span8 offset1">
     <div id="genre-tags" class="row"><%= render 'display_genre_tags' %></div>
     <div class="row">
-        <% if current_user?(@story.user) %>
+        <% if current_user?(@author) %>
           <div class="span2"><%= link_to "Edit story", edit_story_path %></div>
           <div class="span2 offset1"><%= link_to "Delete story", @story,  method: :delete,
               data: {confirm: "Delete story?"} %>

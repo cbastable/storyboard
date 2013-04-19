@@ -71,6 +71,10 @@ class User < ActiveRecord::Base
   def update_storyboard_points!(user, amount)
     User.find_by_id(user.id).update_attribute(:storyboard_points, amount)
   end
+  
+  def update_community_points!(user, amount)
+    User.find_by_id(user.id).update_attribute(:community_points, amount)
+  end
 
   
   private

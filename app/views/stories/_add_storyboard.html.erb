@@ -1,4 +1,4 @@
-<%= form_for(current_user.boards.build(story_id: @story.id),
+<%= form_for(@user.boards.build(story_id: @story.id),
               remote: true) do |f| %>
   <%= f.hidden_field :story_id %>
   <div class="field"><%= f.text_field :name, placeholder: "storyboard name..." %></div>

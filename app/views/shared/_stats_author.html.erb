@@ -1,0 +1,14 @@
+<div class="stats">
+    <a href="<%= publishers_user_path(@author) %>">
+      <strong id="publishers" class="stat">
+        <%= @author.publishers.count %>
+      </strong>
+      pubs
+    </a>
+    <a href="<%= readers_user_path(@author) %>">
+      <strong id="readers" class="stat">
+        <%= @author.readers.count %>
+      </strong>
+      subs
+    </a>
+</div>

@@ -1,0 +1,3 @@
+<div id="user-name"><%= simple_format(@author.name) %></div>
+<div id="user-pic"><%= link_to gravatar_for(@author, size: 80), user_path(@author) %></div>
+<div id="user-stats"><%= render 'shared/stats_author' %></div>
