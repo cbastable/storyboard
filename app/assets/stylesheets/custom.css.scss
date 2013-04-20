@@ -909,21 +909,18 @@ input {
           
         }
         
-        .word-count{
-          padding: 1px 3px 1px 3px;
-          color: $grayLighter;
-          font-size: 0.8em;
-          background-color: $grayDark;
-          position: absolute;
-          bottom: 1px;
-          right: 3px;
-        }
-        
         .read-later {
           padding: 1px 3px 1px 3px;
           position: absolute;
           top: 1px;
           right: 3px;
+        }
+        .story-price {
+          padding: 1px 3px 1px 3px;
+          font-size: 0.8em;
+          position: absolute;
+          bottom: 1px;
+          left: 3px;
         }
       }             
 

@@ -12,8 +12,8 @@
 #  primary_genre_id   :integer
 #  secondary_genre_id :integer
 #  tertiary_genre_id  :integer
-#  upvotes            :integer
 #  price              :integer          default(0)
+#  upvotes            :integer          default(0)
 #
 
 class Story < ActiveRecord::Base
@@ -46,7 +46,7 @@ class Story < ActiveRecord::Base
     indexes primary_genre(:name), as: :genre_1,   sortable: true
     indexes secondary_genre(:name), as: :genre_2, sortable: true
     indexes tertiary_genre(:name), as: :genre_3, sortable: true
-    indexes :price
+    indexes :price, sortable: true
     
     set_property field_weights: {
       title: 30,
@@ -77,6 +77,25 @@ class Story < ActiveRecord::Base
     story.content.split(" ").first(100).join(" ") + "..."
   end
   
+  def viewcount(story)
+    story.stats.select("DISTINCT viewer_id").count
+  end
+  
+  def wordcount(story)
+    story.content.scan(/[\w-]+/).size
+  end
+  
+  def update_prices
+    Story.all.each do |story|
+      if story.viewcount(story) > 1000
+        story.price = Math::log(story.viewcount.to_f).round.to_i
+        story.save
+      else
+        story.price = 0
+        story.save
+      end
+    end
+  end
   
   default_scope order: 'stories.created_at DESC'
   

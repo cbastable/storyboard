@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418025059) do
+ActiveRecord::Schema.define(:version => 20130419181411) do
 
   create_table "boards", :force => true do |t|
     t.integer  "user_id"
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(:version => 20130418025059) do
     t.integer  "primary_genre_id"
     t.integer  "secondary_genre_id"
     t.integer  "tertiary_genre_id"
-    t.integer  "upvotes"
     t.integer  "price",              :default => 0
+    t.integer  "upvotes",            :default => 0
   end
 
   add_index "stories", ["created_at"], :name => "index_stories_on_created_at"
