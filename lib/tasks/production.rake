@@ -1,6 +1,6 @@
 namespace :db do
   desc "Fill database with sample data"
-  task populate: :environment do
+  task production: :environment do
     make_admin
     make_genres
   end
