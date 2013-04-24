@@ -46,7 +46,6 @@ class Story < ActiveRecord::Base
     indexes primary_genre(:name), as: :genre_1,   sortable: true
     indexes secondary_genre(:name), as: :genre_2, sortable: true
     indexes tertiary_genre(:name), as: :genre_3, sortable: true
-    indexes :price, sortable: true
     
     set_property field_weights: {
       title: 30,
