@@ -3,14 +3,32 @@
               remote: true) do |f| %>
   <%= f.hidden_field :story_id %>
   <%= f.hidden_field :viewer_id %>
-  <%= f.submit "Pay with Storyboard Points", class: "btn btn-primary" %>
+  <% if @story.price > 0 %>
+  <%= f.submit "Pay with Storyboard Points", id: "storyboard-point-purchase", class: "btn btn-primary" %>
+  <% elsif @story.price == 0 %>
+  <%= f.submit "Pay with Storyboard Points", id: "storyboard-point-purchase", class: "btn btn-primary", disabled: true %>              
+  <% end %>
 <% end %>
-
 
 <%= form_for(@story.stats.build(story_id: @story.id, viewer_id: @user.id),
               remote: true) do |f| %>
   <%= f.hidden_field :story_id %>
   <%= f.hidden_field :viewer_id %>
-  <%= f.submit "View story for free", class: "btn btn-primary" %>
+  <% if @story.price > 0 %>
+  <%= f.submit "Pay with Community Points", id: "community-point-purchase", class: "btn btn-primary" %>
+  <% elsif @story.price == 0 %>
+  <%= f.submit "Pay with Community Points", id: "community-point-purchase", class: "btn btn-primary", disabled: true %>              
+  <% end %>
+<% end %>
+
+<%= form_for(@story.stats.build(story_id: @story.id, viewer_id: @user.id),
+              remote: true) do |f| %>
+  <%= f.hidden_field :story_id %>
+  <%= f.hidden_field :viewer_id %>
+  <% if @story.price > 0 %>
+  <%= f.submit "View story for free", id: "free-purchase", class: "btn btn-primary disabled" %>
+  <% elsif @story.price == 0 %>
+  <%= f.submit "View story for free", id: "free-purchase", class: "btn btn-primary" %>
+  <% end %>
 <% end %>
 <% end %>
