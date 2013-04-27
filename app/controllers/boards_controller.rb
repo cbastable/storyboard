@@ -3,6 +3,7 @@ class BoardsController < ApplicationController
 
   def create
     @board = Board.new(params[:board])
+    @user = current_user
     if params[:commit] == 'Add to storyboard'
       current_user.add_to_storyboard!(@board)
       @story = Story.find_by_id(@board.story_id)

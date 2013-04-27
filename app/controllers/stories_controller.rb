@@ -85,6 +85,7 @@ def upvote
     @stat = @story.stats.find_by_viewer_id(current_user.id)
     @stat.rated = true
     @stat.save
+    @user = current_user
     respond_to do |format|
       format.html {redirect_to story_path(@story)}
       format.js
@@ -97,6 +98,7 @@ def downvote
     @stat = @story.stats.find_by_viewer_id(current_user.id)
     @stat.rated = true
     @stat.save
+    @user = current_user
     respond_to do |format|
       format.html {redirect_to story_path(@story)}
       format.js
