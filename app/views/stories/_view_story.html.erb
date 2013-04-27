@@ -1,3 +1,4 @@
+<% if signed_in? %>
 <%= form_for(@story.stats.build(story_id: @story.id, viewer_id: @user.id),
               remote: true) do |f| %>
   <%= f.hidden_field :story_id %>
@@ -11,4 +12,5 @@
   <%= f.hidden_field :story_id %>
   <%= f.hidden_field :viewer_id %>
   <%= f.submit "View story for free", class: "btn btn-primary" %>
+<% end %>
 <% end %>

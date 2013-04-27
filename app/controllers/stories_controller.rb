@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-before_filter :signed_in_user, only: [:new, :create, :index, :show, :edit, :destroy]
+before_filter :signed_in_user, only: [:new, :create, :edit, :destroy]
 before_filter :correct_user, only: [:edit, :destroy]
 
 
@@ -40,13 +40,13 @@ end
 def show
   @story = Story.find_by_id(params[:id])
   @comments = @story.comments.paginate(per_page: 10, page: params[:page])
-  @user = current_user
   @author = @story.user
   @preview = @story.preview(@story)
-  @stats = @story.stats.find_by_viewer_id(current_user.id)
   if signed_in?
+    @user = current_user
+    @stats = @story.stats.find_by_viewer_id(current_user.id)
     @comment = @story.comments.build
-    @comment.user_id = current_user.id
+    @comment.user_id = current_user.id  
   end
   respond_to do |format|
         format.html

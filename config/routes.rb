@@ -28,8 +28,6 @@ Storyboard::Application.routes.draw do
   
   match '/library', to: 'users#show'
   
-  
-
   match '/write',     to: 'stories#new' 
   match '/:id',       to: 'stories#show'
   #match '/:id/edit',  to: 'stories#edit'

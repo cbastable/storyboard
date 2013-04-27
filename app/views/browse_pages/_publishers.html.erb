@@ -1,9 +1,17 @@
 <ul id="publishers">
-  <% if @publishers.any? %>
+  <% if signed_in? && @publishers.any? %>
       <% @publishers.each do |publisher| %>
         <li id="<%=publisher.id%>">
             <div id="picture"><%= link_to gravatar_for(publisher, size: 40), publisher %></div>
             <div id="name"><%= link_to publisher.name, publisher %></div>
+        </li>
+      <% end %>
+  <% else %>
+      <% @authors.each do |author| %>
+        <li id="<%=author.id%>">
+            <div id="picture"><%= link_to gravatar_for(author, size: 40), author %></div>
+            <div id="name"><%= link_to author.name, author %></div>
+            <div id="readers">Readers: <%=author.readers.count%></div>
         </li>
       <% end %>
   <% end %>

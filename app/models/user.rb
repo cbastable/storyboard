@@ -22,9 +22,7 @@ class User < ActiveRecord::Base
   
   has_many :relationships, foreign_key: "reader_id", dependent: :destroy
   has_many :publishers, through: :relationships, source: :publisher
-  has_many :reverse_relationships,  foreign_key: "publisher_id",
-                                    class_name: "Relationship",
-                                    dependent: :destroy
+  has_many :reverse_relationships,  foreign_key: "publisher_id", class_name: "Relationship", dependent: :destroy
   has_many :readers, through: :reverse_relationships, source: :reader
   
   has_many :boards, dependent: :destroy

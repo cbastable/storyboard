@@ -10,13 +10,10 @@
       <% end %>
     </div>
     
-    <div id="user-info">
-      <%= render 'shared/floating_user_info' %>
-    </div>
-    <div id="genre-publishers">
-      <h6>Top <%= @genre.name.downcase %> publishers</h6>
-      <%= render 'genre_publishers' %>
-    </div>
+    <% if signed_in? %>
+    <div id="user-info"><%= render 'shared/floating_user_info' %></div>
+    <% end %>
+    <div id="genre-publishers"><%= render 'genre_publishers' %></div>
   </div>
   
   

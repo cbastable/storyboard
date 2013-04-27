@@ -1,4 +1,3 @@
-
 <div id="home-page" class="row">
   
   <div id="home-left">
@@ -8,10 +7,12 @@
       <% end %>
     </div>
     
-    <div id="user-info">
-      <%= render 'shared/floating_user_info' %>
-    </div>
-    <div id="home-publishers"><%= render 'publishers' %></div>
+    <% if signed_in? %>
+      <div id="user-info">
+        <%= render 'shared/floating_user_info' %>
+      </div>
+    <% end %>
+      <div id="home-publishers"><%= render 'publishers' %></div>
   </div>
   
   <div id="home-center">

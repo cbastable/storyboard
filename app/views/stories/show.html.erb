@@ -5,11 +5,11 @@
   <div class="storyboard-seperator"></div>
   <div id="author-info"><%= render 'shared/floating_author_info' %></div>
   </aside>
-  
+
 <div class="span8 offset1">
     <div id="genre-tags" class="row"><%= render 'display_genre_tags' %></div>
     <div class="row">
-        <% if current_user?(@author) %>
+        <% if signed_in? && current_user?(@author) %>
           <div class="span2"><%= link_to "Edit story", edit_story_path %></div>
           <div class="span2 offset1"><%= link_to "Delete story", @story,  method: :delete,
               data: {confirm: "Delete story?"} %>
@@ -26,13 +26,14 @@
       <div id="view-story" class="row"><%= render 'view_story_form' %></div>
       <% end %>
       
-      <div id="render-review"><%= render 'review_forms' %></div>
+      <% if signed_in? %>
+        <div id="render-review"><%= render 'review_forms' %></div>
+        <div id="comment-holder" class="row">
+          <div id="comment-profile-pic" class="span2"><%= render 'shared/user_info' %></div>
+          <div id="comment-text-area" class="span6"><%= render 'comment_form' %></div>
+        </div>  
+      <% end %>
       
-      <div id="comment-holder" class="row">
-        <div id="comment-profile-pic" class="span2"><%= render 'shared/user_info' %></div>
-        <div id="comment-text-area" class="span6"><%= render 'comment_form' %></div>
-      </div>  
-
       <div class="row">
         <div class="span8"><%= render 'show_comments' %></div>
       </div>

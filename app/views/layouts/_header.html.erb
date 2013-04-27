@@ -12,11 +12,11 @@
               
             <% end %>
           </li>
+          <li><%= link_to(write_path) do %>
+               <i class="icon-pencil"></i> Publish
+              <% end %>
+          </li>
           <% if signed_in? %>
-            <li><%= link_to(write_path) do %>
-                 <i class="icon-pencil"></i> Publish
-                <% end %>
-            </li>
             <li class="dropdown header-points">
               <%= render 'shared/points' %>
             </li>

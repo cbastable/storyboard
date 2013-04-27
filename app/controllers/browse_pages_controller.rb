@@ -1,18 +1,19 @@
 class BrowsePagesController < ApplicationController
-  before_filter :signed_in_user
+  #before_filter :signed_in_user
 
   def home
-    @user = current_user
-    @publishers = @user.publishers.last(10)
+    if signed_in?
+      @user = current_user
+      @publishers = @user.publishers.last(10)
+    end
     
+    @authors = User.last(10)
     
+    #below is janky/awful
     @genres_per_page = 13
     @per_page = 13
-    #this is janky
     @genres = Genre.scoped.paginate(page: params[:page], per_page: params[:per_page] || @genres_per_page)
-    
     @new_stories = Story.scoped.paginate(page: params[:new_stories_page], per_page: params[:per_page] || @per_page)
-    
     @genre_stories = @genres.inject({}) do |hash, genre|
       hash[genre] = genre.primary_stories.scoped.paginate(page: params[:"#{genre.name}"],
                                                           per_page: params[:per_page] = @per_page)
