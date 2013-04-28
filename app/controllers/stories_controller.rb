@@ -25,11 +25,10 @@ end
 
 def create
   @story = current_user.stories.build(params[:story])
-  @board = current_user.boards.build(name: "Published", story_id: @story.id)
   if @story.save
     @stat = @story.stats.build(viewer_id: current_user.id, viewed: true)
     @stat.save
-    @board.save
+    @board = current_user.boards.create!(name: "Published", story_id: @story.id)
     flash[:success] = "Story pinned successfully"
     redirect_to story_path(@story)
   else
@@ -70,6 +69,9 @@ end
 
 def destroy
   current_user.stories.find_by_id(params[:id]).destroy
+  Board.where(story_id: params[:id]).each do |board|
+    board.destroy
+  end
   flash[:sucess] = "Story deleted"
   redirect_to @current_user
 end

@@ -9,7 +9,6 @@ gem 'jquery-rails', '2.0.2'
 gem 'thinking-sphinx', '2.0.10'
 gem 'flying-sphinx', git: 'git://github.com/flying-sphinx/flying-sphinx.git'
 gem 'stripe', git: 'https://github.com/stripe/stripe-ruby'
-gem 'whenever', require: false, git: 'https://github.com/javan/whenever'
 
 group :development, :test do
   gem 'pg'

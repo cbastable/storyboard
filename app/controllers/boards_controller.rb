@@ -24,6 +24,10 @@ class BoardsController < ApplicationController
   def destroy
     if params[:commit] == 'Delete'
       current_user.boards.where(name: current_user.boards.find_by_id(params[:id]).name).destroy_all
+      respond_to do |format|
+        format.html 
+        format.js
+      end
     else
       @board = Board.find_by_id(params[:id])
       current_user.remove_from_storyboard!(@board)

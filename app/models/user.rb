@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   has_many :readers, through: :reverse_relationships, source: :reader
   
   has_many :boards, dependent: :destroy
-  has_many :library_stories, through: :boards, source: :library_story
+  has_many :library_stories, through: :boards, source: :library_story, dependent: :destroy
   
   has_many :stats, source: :viewer, dependent: :destroy
   

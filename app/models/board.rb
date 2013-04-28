@@ -14,7 +14,7 @@ class Board < ActiveRecord::Base
   attr_accessible :name, :story_id
   
   belongs_to :user
-  belongs_to :library_story, class_name: "Story", foreign_key: "story_id"
+  belongs_to :library_story, class_name: "Story", foreign_key: "story_id", dependent: :destroy
   #wanted to do has_many, but that would require putting a foreign_key inside each story (infeasible), so went with this 
   #approach
   

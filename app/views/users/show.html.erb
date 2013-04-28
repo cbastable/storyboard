@@ -8,7 +8,6 @@
       </div>
       <div class="user-center">
           <div class="tabbable tabs-left">
-          
             <ul class="nav nav-tabs">
               <% @user.boards.select("DISTINCT name").each do |board| %>
               <li><a href="#<%=board.name.parameterize%>" data-toggle="tab"><%=board.name%></a></li>
@@ -21,8 +20,6 @@
               </div>
               <% end %>
             </div>
-            
-            
           </div>
         </div>
       </div>

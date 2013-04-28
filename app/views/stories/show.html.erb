@@ -10,9 +10,10 @@
     <div id="genre-tags" class="row"><%= render 'display_genre_tags' %></div>
     <div class="row">
         <% if signed_in? && current_user?(@author) %>
-          <div class="span2"><%= link_to "Edit story", edit_story_path %></div>
-          <div class="span2 offset1"><%= link_to "Delete story", @story,  method: :delete,
-              data: {confirm: "Delete story?"} %>
+          <div class="span2"><%= button_to "Edit story", edit_story_path, class: "btn btn-primary", method: :get %></div>
+          <div class="span2 offset1">
+              <%= button_to "Delete story", @story, class: "btn btn-primary", method: :delete,
+                data: {confirm: "Delete story?"} %>
           </div>
         <% end %>
     </div>
