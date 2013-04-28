@@ -1,0 +1,25 @@
+---
+leather_1.png: leather_1.png
+leather_1/index.png: leather_1.png
+paper_fibers.png: paper_fibers.png
+paper_fibers/index.png: paper_fibers.png
+rails.png: rails.png
+rails/index.png: rails.png
+application.js: application.js
+application/index.js: application.js
+application.css: application.css
+application/index.css: application.css
+font/FontAwesome.otf: font/FontAwesome.otf
+font/FontAwesome/index.otf: font/FontAwesome.otf
+font/fontawesome-webfont.eot: font/fontawesome-webfont.eot
+font/fontawesome-webfont/index.eot: font/fontawesome-webfont.eot
+font/fontawesome-webfont.svg: font/fontawesome-webfont.svg
+font/fontawesome-webfont/index.svg: font/fontawesome-webfont.svg
+font/fontawesome-webfont.ttf: font/fontawesome-webfont.ttf
+font/fontawesome-webfont/index.ttf: font/fontawesome-webfont.ttf
+font/fontawesome-webfont.woff: font/fontawesome-webfont.woff
+font/fontawesome-webfont/index.woff: font/fontawesome-webfont.woff
+glyphicons-halflings-white.png: glyphicons-halflings-white.png
+glyphicons-halflings-white/index.png: glyphicons-halflings-white.png
+glyphicons-halflings.png: glyphicons-halflings.png
+glyphicons-halflings/index.png: glyphicons-halflings.png
