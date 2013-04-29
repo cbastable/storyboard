@@ -1,15 +1,6 @@
 <% for genre, primary_stories in @genre_stories %>
-
  <% if params[:param_name] == genre.name %>
- 
-
- 
-
    <% if primary_stories.all.count>0 %>
-
-
-
-
    $('#<%=genre.name%>').append('<%= escape_javascript(render partial: 'genre_stories',
                                 locals: {genre: genre, primary_stories: primary_stories}) %>');           
    $('a.<%=genre.name%>.hook3').attr('href', '<%=
@@ -39,10 +30,6 @@
                           root_path(Horror: (params[:"#{genre.name}"].to_i || 1)+1,
                                          param_name: "#{genre.name}",
                                          per_page: params[:per_page] || 8)
-                 when "Crime" then
-                          root_path(Crime: (params[:"#{genre.name}"].to_i || 1)+1,
-                                         param_name: "#{genre.name}",
-                                         per_page: params[:per_page] || 8)
                  when "Paranormal" then
                           root_path(Paranormal: (params[:"#{genre.name}"].to_i || 1)+1,
                                          param_name: "#{genre.name}",
@@ -51,16 +38,8 @@
                           root_path(Urban_fantasy: (params[:"#{genre.name}"].to_i || 1)+1,
                                          param_name: "#{genre.name}",
                                          per_page: params[:per_page] || 8)
-                 when "Thriller" then
-                          root_path(Thriller: (params[:"#{genre.name}"].to_i || 1)+1,
-                                         param_name: "#{genre.name}",
-                                         per_page: params[:per_page] || 8)
-                 when "Teen" then
+                 when "Young_adult" then
                           root_path(Teen: (params[:"#{genre.name}"].to_i || 1)+1,
-                                         param_name: "#{genre.name}",
-                                         per_page: params[:per_page] || 8)
-                 when "Western" then
-                          root_path(Western: (params[:"#{genre.name}"].to_i || 1)+1,
                                          param_name: "#{genre.name}",
                                          per_page: params[:per_page] || 8)
                  when "Fanfiction" then
@@ -76,15 +55,6 @@
                                    
     <% else %>                             
     $("a.<%=genre.name%>.hook3").hide();
-    
-    
-    
-    
     <% end %>
-
-    
-
-
- 
  <% end %>
  <% end %>

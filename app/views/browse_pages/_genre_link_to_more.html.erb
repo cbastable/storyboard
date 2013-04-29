@@ -54,15 +54,6 @@
                                         remote: true do %>
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
-        <% when "Crime" then %>
-            <%= link_to root_path(Crime: (params[:"#{genre.name}"].to_i || 2)+2,
-                                      param_name: "#{genre.name}",
-                                      per_page: params[:per_page] || 8),
-                                      class: "#{genre.name} hook3 btn btn-primary",
-                                        data: {genre: "#{genre.name}"},
-                                        remote: true do %>
-                                      <i class="icon-circle-arrow-down icon-white"></i> More...
-                                    <% end %>
         <% when "Paranormal" then %>
             <%= link_to root_path(Paranormal: (params[:"#{genre.name}"].to_i || 2)+2,
                                       param_name: "#{genre.name}",
@@ -81,26 +72,8 @@
                                         remote: true do %>
                                       <i class="icon-circle-arrow-down icon-white"></i> More...
                                     <% end %>
-        <% when "Thriller" then %>
-            <%= link_to root_path(Thriller: (params[:"#{genre.name}"].to_i || 2)+2,
-                                      param_name: "#{genre.name}",
-                                      per_page: params[:per_page] || 8),
-                                      class: "#{genre.name} hook3 btn btn-primary",
-                                        data: {genre: "#{genre.name}"},
-                                        remote: true do %>
-                                      <i class="icon-circle-arrow-down icon-white"></i> More...
-                                    <% end %>
-        <% when "Teen" then %>
+        <% when "Young_adult" then %>
             <%= link_to root_path(Teen: (params[:"#{genre.name}"].to_i || 2)+2,
-                                      param_name: "#{genre.name}",
-                                      per_page: params[:per_page] || 8),
-                                      class: "#{genre.name} hook3 btn btn-primary",
-                                        data: {genre: "#{genre.name}"},
-                                        remote: true do %>
-                                      <i class="icon-circle-arrow-down icon-white"></i> More...
-                                    <% end %>
-        <% when "Western" then %>
-            <%= link_to root_path(Western: (params[:"#{genre.name}"].to_i || 2)+2,
                                       param_name: "#{genre.name}",
                                       per_page: params[:per_page] || 8),
                                       class: "#{genre.name} hook3 btn btn-primary",

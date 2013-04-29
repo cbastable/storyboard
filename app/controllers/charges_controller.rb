@@ -3,9 +3,11 @@ class ChargesController < ApplicationController
   
   def create
     # Amount in cents
-    @amount = params[:amount]
+    @amount = params[:amount].to_i
     @user = current_user
-    @balance = @user.storyboard_points
+    @sp = @user.storyboard_points
+    @cp = @user.community_points
+    @bonus_cp = (@amount / 500 ) * 100
   
     customer = Stripe::Customer.create(
       email: @user.email,
@@ -19,8 +21,9 @@ class ChargesController < ApplicationController
       currency:     'usd'
     )
     
-    @user.update_storyboard_points!(@user, @balance + @amount.to_i)
-    flash[:success] = "Please sign in again to access your updated balance"
+    @user.update_storyboard_points!(@user, @sp + @amount)
+    @user.update_community_points!(@user, @cp + @bonus_cp)
+    flash[:success] = "Success! You've been credited #{@amount} Storyboard Points. Please sign in again to access your updated balance."
     redirect_to new_session_url
   
   rescue Stripe::CardError => e

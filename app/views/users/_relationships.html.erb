@@ -1,13 +1,13 @@
 <div id="board-show">
   <div class="board-heading">
-    <%= render 'user_nav_bar', relationships: relationships %>
+    <%= render 'user_nav_bar', relationships: relationships, type: type %>
   </div>
   <ul class="thumbnails stories">
     <% relationships.each do |relationship| %>
       <li class="span3">
-        <div class="thumbnail">
+        <div class="thumbnail user-thumb">
           <% if !relationship.id.nil? %>
-            <%=  render 'user_thumb', user: relationship %>
+            <%=  render 'user_thumb', user: relationship, type: type %>
           <% end %>
         </div>
       </li>

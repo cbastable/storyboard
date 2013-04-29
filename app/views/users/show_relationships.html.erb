@@ -1,6 +1,6 @@
 <% provide(:title, @title) %>
 <div class="row">
-  <div class="user=page">
+  <div class="user-page">
     <div class="user-left">
       <%=render 'shared/floating_user_info'%>
     </div>
@@ -11,8 +11,8 @@
             <li><a href="#sub" data-toggle="tab">Readers</a></li>
         </ul>
         <div class="tab-content">
-          <div class="tab-pane <%=current_page?(publishers_user_path) ? 'active' : ''%>" id="pub"><%= render 'relationships', relationships: @publishers %></div>
-          <div class="tab-pane <%=current_page?(readers_user_path) ? 'active' : ''%>"" id="sub"><%= render 'relationships', relationships: @readers%></div>
+          <div class="tab-pane <%=current_page?(publishers_user_path) ? 'active' : ''%>" id="pub"><%= render 'relationships', relationships: @publishers, type: "Publishers" %></div>
+          <div class="tab-pane <%=current_page?(readers_user_path) ? 'active' : ''%>"" id="sub"><%= render 'relationships', relationships: @readers, type: "Readers"%></div>
         </div>
       </div>
     </div>

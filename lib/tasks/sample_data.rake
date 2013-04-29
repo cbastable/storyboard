@@ -43,12 +43,9 @@ def make_genres
   Genre.create!(name: "Mystery")
   Genre.create!(name: "Science_fiction")
   Genre.create!(name: "Horror")
-  Genre.create!(name: "Crime")
   Genre.create!(name: "Paranormal")
   Genre.create!(name: "Urban_fantasy")
-  Genre.create!(name: "Thriller")
   Genre.create!(name: "Teen")
-  Genre.create!(name: "Western")
   Genre.create!(name: "Fanfiction")
 end
 
@@ -56,7 +53,7 @@ def make_stories
   users = User.all(limit: 10)
     50.times do
       title = Faker::Lorem.sentence(1)
-      genre = Genre.find((rand(12)+1))
+      genre = Genre.find((rand(10)+1))
       blurb = Faker::Lorem.sentence(5)
       content = Faker::Lorem.sentence(250)
       users.each { |user| user.stories.create!( title: title,

@@ -1,7 +1,11 @@
 <div class="navbar navbar-static-top">
   <div class="navbar-inner">
     <div class="container-fluid">
-        <a class="brand" href="#"><%= relationships.first.class.name %>s</a>
+      <% if relationships.any? %>
+        <a class="brand" href="#"><%= type %></a>
+      <% else %>
+          <a class="brand" href="#">None yet...</a>
+      <% end %>
       <nav>
         <ul class="nav pull-right">
           <li class="nav-search">

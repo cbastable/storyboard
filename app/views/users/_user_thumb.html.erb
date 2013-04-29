@@ -1,20 +1,19 @@
-<div class="story-main-content">
-  <div class="story-content-wrapper">
-      <h4 class="story-item-title"><a class="story-title"
+<div class="user-main-content">
+  <div class="user-content-wrapper">
+      <h4 class="user-item-title"><a class="user-title"
             title="<%= user.name %>"
             href="<%= user_path(user) %>">
             <%= truncate(user.name, length: 21) %></a></h4>
-        <div class="story-item-thumb">
+        <div class="user-item-thumb">
           <a href="<%= user_path(user) %>">
             <i class="icon-user icon-4x"></i>
-             <span class="story-price"><i class="icon-star"></i></span>
+            <span class="user-remove">
+              <% if signed_in? && current_user?(@user)%>
+                <%=type=="Publishers" ? "" : ""%>
+              <% end %>
+              </span>
+            <span class="user-price">Stories: <%=user.stories.count%> | Readers: <%=user.readers.count%> | Publishers: <%=user.publishers.count%></span>
           </a>
-        </div> 
-      <div class="story-description">        
-          <a class="author-name" title="<%=user.name %>" href="<%= user_path(user) %>">
-          <%= user.name %>
-          </a>
-        <div class="blurb" ><%= simple_format(user.name) %></div>
-      </div>    
+        </div>  
   </div>
 </div>
