@@ -26,6 +26,7 @@ class UsersController < ApplicationController
     else  
       @user = User.new(params[:user])
       if @user.save
+        @user.update_community_points!(@user, 400)
         sign_in @user
         flash[:success] = "Welcome to StoryBoard!"
         redirect_to @user

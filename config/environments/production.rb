@@ -65,7 +65,7 @@ Storyboard::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   
-  ENV['SECRET_KEY'] = "sk_live_dpdIYqG99GJruq2TpWDHMz3q"
-  ENV['PUBLISHABLE_KEY'] = "pk_live_ccX2lTVS73i4Z5Hm3ClTX2L2"  
+  ENV['SECRET_KEY'] = "lol"
+  ENV['PUBLISHABLE_KEY'] = "lol"  
   
 end

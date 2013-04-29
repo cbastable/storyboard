@@ -15,4 +15,4 @@
 /tmp
 
 #Ignore environments - hide Stripe keys
-config/environments
+config/environments/production.rb
