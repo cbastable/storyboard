@@ -1,0 +1,22 @@
+<div id="board-show">
+  <div class="board-heading">
+    <%= render 'user_nav_bar', relationships: relationships %>
+  </div>
+  <ul class="thumbnails stories">
+    <% relationships.each do |relationship| %>
+      <li class="span3">
+        <div class="thumbnail">
+          <% if !relationship.id.nil? %>
+            <%=  render 'user_thumb', user: relationship %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to(user_path(page: (params[:page].to_i)+2,
+                                  search: params[:search],
+                                  per_page: params[:per_page] || @per_page),
+                                  class: "hook btn btn-primary", remote: true) do %>
+                                  <i class="icon-circle-arrow-down icon-white"></i> More...
+                                  <% end %>
+</div>

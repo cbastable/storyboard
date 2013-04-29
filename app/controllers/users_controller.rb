@@ -64,14 +64,16 @@ class UsersController < ApplicationController
   def publishers
     @title = "Publishers"
     @user = User.find(params[:id])
-    @users = @user.publishers.paginate(page: params[:page])
+    @publishers = @user.publishers.paginate(page: params[:page])
+    @readers = @user.readers.paginate(page: params[:page])
     render 'show_relationships'
   end
   
   def readers
-    @title = "Subscribers"
+    @title = "Readers"
     @user = User.find(params[:id])
-    @users = @user.readers.paginate(page: params[:page])
+    @publishers = @user.publishers.paginate(page: params[:page])
+    @readers = @user.readers.paginate(page: params[:page])
     render 'show_relationships'
   end
   

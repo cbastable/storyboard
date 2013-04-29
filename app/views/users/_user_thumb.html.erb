@@ -1,0 +1,20 @@
+<div class="story-main-content">
+  <div class="story-content-wrapper">
+      <h4 class="story-item-title"><a class="story-title"
+            title="<%= user.name %>"
+            href="<%= user_path(user) %>">
+            <%= truncate(user.name, length: 21) %></a></h4>
+        <div class="story-item-thumb">
+          <a href="<%= user_path(user) %>">
+            <i class="icon-user icon-4x"></i>
+             <span class="story-price"><i class="icon-star"></i></span>
+          </a>
+        </div> 
+      <div class="story-description">        
+          <a class="author-name" title="<%=user.name %>" href="<%= user_path(user) %>">
+          <%= user.name %>
+          </a>
+        <div class="blurb" ><%= simple_format(user.name) %></div>
+      </div>    
+  </div>
+</div>
