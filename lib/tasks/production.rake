@@ -1,5 +1,5 @@
 namespace :db do
-  desc "Fill database with sample data"
+  desc "Fill database with production data"
   task production: :environment do
     make_initial_genres
   end
