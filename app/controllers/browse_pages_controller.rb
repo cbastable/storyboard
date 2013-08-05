@@ -1,6 +1,10 @@
 class BrowsePagesController < ApplicationController
   #before_filter :signed_in_user
 
+  def splash
+    @user = User.new
+  end
+
   def home
     if signed_in?
       @user = current_user

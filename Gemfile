@@ -4,7 +4,7 @@ gem 'rails', '3.2.11'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'faker', '1.0.1'
 gem 'will_paginate', '3.0.3'
-gem 'bootstrap-will_paginate', '0.0.6'
+#gem 'bootstrap-will_paginate', '0.0.6'
 gem 'jquery-rails', '2.0.2'
 gem 'thinking-sphinx', '2.0.10'
 gem 'flying-sphinx', git: 'git://github.com/flying-sphinx/flying-sphinx.git'
@@ -28,7 +28,7 @@ group :assets do
   gem 'sass-rails',   '3.2.5'
   gem 'coffee-rails', '3.2.2'
   gem 'uglifier', '1.2.3'
-  gem 'bootstrap-sass', '2.1'
+  #gem 'bootstrap-sass', '2.1'
 end
 
 group :test do

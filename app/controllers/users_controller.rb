@@ -13,12 +13,6 @@ class UsersController < ApplicationController
     end 
   end
   
-  def show
-    @user = User.find(params[:id])
-    @user_stories = @user.stories
-    @comments = @user.comments.paginate(page: params[:page])
-  end
-  
   def create
     if signed_in?
       flash[:notice] = "You are already signed in to an account"
@@ -27,82 +21,11 @@ class UsersController < ApplicationController
       @user = User.new(params[:user])
       if @user.save
         @user.update_community_points!(@user, 400)
-        sign_in @user
-        flash[:success] = "Welcome to StoryBoard!"
-        redirect_to @user
+        flash[:success] = "Added to beta! We'll be in touch..."
+        redirect_to root_path
       else
         render 'new'
       end
     end
   end
-  
-  def edit
-  end
-  
-  def update
-    if @user.update_attributes(params[:user])
-      flash[:success] = "Profile updated!"
-      sign_in @user
-      redirect_to @user
-    else
-      render 'edit'
-    end
-  end
-  
-  def destroy
-    User.find(params[id]).destroy
-    flash[:success] = "User destroyed"
-    redirect_to users_url
-  end
-  
-  def index
-    @users = User.paginate(page: params[:page])
-  end
-  
-  def library
-  end
-  
-  def publishers
-    @title = "Publishers"
-    @user = User.find(params[:id])
-    @publishers = @user.publishers.paginate(page: params[:page])
-    @readers = @user.readers.paginate(page: params[:page])
-    render 'show_relationships'
-  end
-  
-  def readers
-    @title = "Readers"
-    @user = User.find(params[:id])
-    @publishers = @user.publishers.paginate(page: params[:page])
-    @readers = @user.readers.paginate(page: params[:page])
-    render 'show_relationships'
-  end
-  
-  def library_stories
-    @title = "Library stories"
-    @user = User.find(params[:id])
-    @storyboards = @user.boards
-    @board_stories = @user.library_stories.select("DISTINCT name").paginate(page: params[:page])
-    render 'show_library'
-  end
-  
-  def storyboard_points
-    @user = current_user
-  end
-  
-  def community_points
-    @user = current_user
-  end
-
-  private
-  
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_path) unless current_user?(@user)
-  end
-  
-  def admin_user
-    redirect_to(root_path) unless current_user.admin?
-  end
-
 end #end of Users Controller

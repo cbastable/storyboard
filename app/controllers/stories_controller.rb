@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-before_filter :signed_in_user, only: [:new, :create, :edit, :destroy]
+before_filter :signed_in_user
 before_filter :correct_user, only: [:edit, :destroy]
 
 

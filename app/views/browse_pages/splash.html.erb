@@ -1,0 +1,43 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap -->
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+
+  <link href="http://fonts.googleapis.com/css?family=Abel|Open+Sans:400,600" rel="stylesheet" />
+
+</head>
+<body>
+
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6 col-offset-3 panel">
+
+              <h1 class="margin-base-vertical">What was the last great story you read?</h1>
+
+              <p>
+                  Short stories used to be a way for writers to express themselves. To practice. To play with an idea. To talk to their fans.
+              </p>
+
+              <p>
+                  They all but disappeared. But not forever. They're coming back.
+              </p>
+
+              <p>
+                  Do you know what the next great story you read will be?
+              </p>
+
+              <%= form_for @user, :html => {:class => "margin-base-vertical"} do |f| %>
+              	<%= render 'splash_fields', f: f %>
+              	<p class="text-center"><%= f.submit "Find out...", class: "btn btn-success btn-large"  %></p>
+              <% end %>
+
+              <div class="margin-base-vertical">
+                  <small class="text-muted"><a href=""></a><a href=""></a></small>
+              </div>
+
+          </div><!-- //main content -->
+      </div><!-- //row -->
+  </div> <!-- //container -->
+
+</body>

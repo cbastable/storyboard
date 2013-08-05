@@ -1,0 +1,8 @@
+<p class="input-group">
+  <span class="input-group-addon"><span class="icon-envelope"></span></span>
+  <%= f.text_field :email, type: "text", class: "form-control input-append", placeholder: "you@example.com" %>
+  <%= f.hidden_field :name, value: "beta_user" %>
+  <%= f.hidden_field :password, value: "foobar" %>
+  <%= f.hidden_field :password_confirmation, value: "foobar" %>
+</p>
+<p class="help-block text-center"><small>We won't send you spam. Unsubscribe at any time.</small></p>
